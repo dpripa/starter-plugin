@@ -4,58 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3e500b49a0fe64e579767f26bd1c0d6",
-    "packages": [
-        {
-            "name": "wpappy/wpappy",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wpappy/wpappy.git",
-                "reference": "c3cc1872b541c04d363dd88d45c1b3f55a67c59d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wpappy/wpappy/zipball/c3cc1872b541c04d363dd88d45c1b3f55a67c59d",
-                "reference": "c3cc1872b541c04d363dd88d45c1b3f55a67c59d",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2.0"
-            },
-            "require-dev": {
-                "squizlabs/php_codesniffer": "^3.3.1",
-                "wp-coding-standards/wpcs": "^2.2.1"
-            },
-            "type": "wordpress-library",
-            "autoload": {
-                "psr-4": {
-                    "Wpappy_1_0_6\\": "includes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Dmitry Pripa",
-                    "email": "i@dpripa.com",
-                    "homepage": "https://dpripa.com"
-                }
-            ],
-            "description": "The library that introduces a smart layer between the WordPress environment and your plugin or theme.",
-            "homepage": "https://github.com/wpappy/wpappy",
-            "keywords": [
-                "wordpress"
-            ],
-            "support": {
-                "issues": "https://github.com/wpappy/wpappy/issues",
-                "source": "https://github.com/wpappy/wpappy/tree/1.0.6"
-            },
-            "time": "2022-07-17T15:15:06+00:00"
-        }
-    ],
+    "content-hash": "639dee51fc08b5b0cb62ccdc391084e8",
+    "packages": [],
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",

@@ -1,15 +1,15 @@
 {
-  "name": "wpappy/starter-plugin",
+  "name": "dpripa/wp-starter-plugin",
   "version": "1.0.0",
   "type": "wordpress-plugin",
-  "description": "Plugin based on the Wpappy library.",
-  "homepage": "https://github.com/wpappy/starter-plugin",
+  "description": "WordPress Starter Plugin",
+  "homepage": "https://github.com/dpripa/wp-starter-plugin",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Dmitry Pripa",
       "email": "i@dpripa.com",
-      "homepage": "https://dprioa.com"
+      "homepage": "https://github.com/dpripa"
     }
   ],
   "keywords": [
@@ -21,22 +21,19 @@
   },
   "autoload": {
     "psr-4": {
-      "My_Plugin\\": "includes/"
+      "MyPlugin\\": "inc/"
     }
   },
   "require": {
-    "php": "^7.2.0",
-    "wpappy/wpappy": "1.0.6"
+    "php": "^7.2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.3.1",
     "wp-coding-standards/wpcs": "^2.2.1"
   },
   "scripts": {
-    "webpack-start": "cd sources && npm run start",
-    "webpack-build": "cd sources && npm run build",
+    "install-no-dev": "composer install --no-dev",
     "optimize-autoloader": "composer dump-autoload --optimize",
-    "lint-php": "phpcs",
-    "pack-production-zip": "composer run-script webpack-build && composer install --no-dev && cd tools && npm run pack-production-zip && cd .. && composer install"
+    "lint-php": "phpcs"
   }
 }

@@ -1,8 +1,6 @@
 node_modules
-sources/config.json
-production-zip/
+.env
 vendor/*
-!vendor/wpappy
 !vendor/autoload.php
 !vendor/composer
 vendor/composer/installed.json
