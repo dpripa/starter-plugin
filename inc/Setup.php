@@ -4,7 +4,9 @@ namespace MyPlugin;
 
 defined('ABSPATH') || exit;
 
-final class Setup extends StaticClass {
+final class Setup {
+	use Simpleton;
+
 	public function __construct() {
 		if ($this->is_initialized()) {
 			return;

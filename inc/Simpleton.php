@@ -4,10 +4,10 @@ namespace MyPlugin;
 
 defined('ABSPATH') || exit;
 
-abstract class StaticClass {
-	protected static $is_initialized = false;
+trait Simpleton {
+	private static $is_initialized = false;
 
-	protected function is_initialized(): bool {
+	private function is_initialized(): bool {
 		if (self::$is_initialized) {
 			throw new \Exception('Can only be initialized once');
 		}

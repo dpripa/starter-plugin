@@ -4,10 +4,12 @@ namespace MyPlugin;
 
 defined('ABSPATH') || exit;
 
-final class Template extends StaticClass {
+final class Template {
+	private const TEMPLATE_DIR = 'template';
+
 	public static function get(string $name, array $args = []): string {
 		ob_start();
-		include get_path("template/$name.php");
+		include get_path(self::TEMPLATE_DIR . "/$name.php");
 
 		return ob_get_clean();
 	}

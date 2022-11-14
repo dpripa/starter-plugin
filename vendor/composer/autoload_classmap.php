@@ -8,6 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'MyPlugin\\Setup' => $baseDir . '/inc/Setup.php',
-    'MyPlugin\\StaticClass' => $baseDir . '/inc/StaticClass.php',
+    'MyPlugin\\Simpleton' => $baseDir . '/inc/Simpleton.php',
     'MyPlugin\\Template' => $baseDir . '/inc/Template.php',
 );

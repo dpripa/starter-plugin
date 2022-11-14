@@ -23,7 +23,7 @@ class ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'MyPlugin\\Setup' => __DIR__ . '/../..' . '/inc/Setup.php',
-        'MyPlugin\\StaticClass' => __DIR__ . '/../..' . '/inc/StaticClass.php',
+        'MyPlugin\\Simpleton' => __DIR__ . '/../..' . '/inc/Simpleton.php',
         'MyPlugin\\Template' => __DIR__ . '/../..' . '/inc/Template.php',
     );
 
