@@ -5,13 +5,7 @@ namespace MyPlugin;
 defined('ABSPATH') || exit;
 
 final class Setup {
-	use Simpleton;
-
 	public function __construct() {
-		if ($this->is_initialized()) {
-			return;
-		}
-
 		add_action('plugins_loaded', [$this, 'init']);
 	}
 
