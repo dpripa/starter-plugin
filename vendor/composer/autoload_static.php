@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4
+class ComposerStaticIniteaa5c952b2a245be0219a824e196c284
 {
     public static $prefixLengthsPsr4 = array (
         'M' => 
@@ -22,17 +22,31 @@ class ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'MyPlugin\\App' => __DIR__ . '/../..' . '/inc/App.php',
+        'MyPlugin\\Core\\Action' => __DIR__ . '/../..' . '/inc/Core/Action.php',
+        'MyPlugin\\Core\\AdminNotice' => __DIR__ . '/../..' . '/inc/Core/AdminNotice.php',
+        'MyPlugin\\Core\\App' => __DIR__ . '/../..' . '/inc/Core/App.php',
+        'MyPlugin\\Core\\Arr' => __DIR__ . '/../..' . '/inc/Core/Arr.php',
+        'MyPlugin\\Core\\Asset' => __DIR__ . '/../..' . '/inc/Core/Asset.php',
+        'MyPlugin\\Core\\Bootstrap' => __DIR__ . '/../..' . '/inc/Core/Bootstrap.php',
+        'MyPlugin\\Core\\FS' => __DIR__ . '/../..' . '/inc/Core/FS.php',
+        'MyPlugin\\Core\\I18n' => __DIR__ . '/../..' . '/inc/Core/I18n.php',
+        'MyPlugin\\Core\\Manager' => __DIR__ . '/../..' . '/inc/Core/Manager.php',
+        'MyPlugin\\Core\\Setting' => __DIR__ . '/../..' . '/inc/Core/Setting.php',
+        'MyPlugin\\Core\\Str' => __DIR__ . '/../..' . '/inc/Core/Str.php',
+        'MyPlugin\\Core\\Template' => __DIR__ . '/../..' . '/inc/Core/Template.php',
+        'MyPlugin\\Core\\Url' => __DIR__ . '/../..' . '/inc/Core/Url.php',
+        'MyPlugin\\Setting' => __DIR__ . '/../..' . '/inc/Setting.php',
+        'MyPlugin\\Setting\\General' => __DIR__ . '/../..' . '/inc/Setting/General.php',
         'MyPlugin\\Setup' => __DIR__ . '/../..' . '/inc/Setup.php',
-        'MyPlugin\\Simpleton' => __DIR__ . '/../..' . '/inc/Simpleton.php',
-        'MyPlugin\\Template' => __DIR__ . '/../..' . '/inc/Template.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit475e903bbf7cd4ccfd686e0508419be4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticIniteaa5c952b2a245be0219a824e196c284::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticIniteaa5c952b2a245be0219a824e196c284::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticIniteaa5c952b2a245be0219a824e196c284::$classMap;
 
         }, null, ClassLoader::class);
     }

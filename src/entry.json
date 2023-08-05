@@ -1,0 +1,6 @@
+{
+  "main": [
+    "./script/main.js",
+    "./style/main.scss"
+  ]
+}

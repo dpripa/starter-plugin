@@ -1,0 +1,85 @@
+$white: #fff;
+$gray-light: #dee2e6;
+$gray: #aaa;
+$gray-dark: #969696;
+$black: #4a401c;
+
+$primary: #2377f5;
+$primary-hover: darken($primary, 15%);
+$primary-active: darken($primary, 25%);
+
+$secondary: #e8c607;
+$secondary-hover: darken($secondary, 15%);
+$secondary-active: darken($secondary, 25%);
+
+$info: #124799;
+$info-hover: darken($info, 15%);
+$info-active: darken($info, 25%);
+
+$success: #45c906;
+$success-hover: darken($success, 15%);
+$success-active: darken($success, 25%);
+
+$warning: #e8cb07;
+$warning-hover: darken($warning, 15%);
+$warning-active: darken($warning, 25%);
+
+$danger: #e83707;
+$danger-hover: darken($danger, 15%);
+$danger-active: darken($danger, 25%);
+
+$font-weight-lighter: 300;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-medium: 700;
+$font-weight-bold: 800;
+$font-weight-bolder: 900;
+
+$font-family-base: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family: "Raleway", $font-family-base;
+
+$font-size: 14px;
+$line-height: 1.75;
+$letter-spacing: 0.09em;
+
+$title-font-weight: $font-weight-bolder;
+$title-font-family: "Jost", $font-family-base;
+
+$title-line-height: 1;
+$title-letter-spacing: 0.09em;
+
+$transition: all 0.2s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+$transition-collapse: height 0.35s ease;
+$transition-duration: 0.2s;
+
+$border-width: 1px;
+$border-radius: 12px;
+$border-round: 9999px;
+$border-light: #e3e3e2;
+$border-dark: #444341;
+
+$shadow-width: 10px;
+$box-shadow: 0 0 $shadow-width rgba($black, 0.5);
+$focus-shadow: 0 0 0 2px $primary;
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xx: 1680px
+);
+
+$screen-xs-min: map_get($grid-breakpoints, "xs");
+$screen-xs-max: map_get($grid-breakpoints, "sm") - 1;
+$screen-sm-min: map_get($grid-breakpoints, "sm");
+$screen-sm-max: map_get($grid-breakpoints, "md") - 1;
+$screen-md-min: map_get($grid-breakpoints, "md");
+$screen-md-max: map_get($grid-breakpoints, "lg") - 1;
+$screen-lg-min: map_get($grid-breakpoints, "lg");
+$screen-lg-max: map_get($grid-breakpoints, "xl") - 1;
+$screen-xl-min: map_get($grid-breakpoints, "xl");
+$screen-xl-max: map_get($grid-breakpoints, "xx") - 1;
+$screen-xx-min: map_get($grid-breakpoints, "xx");

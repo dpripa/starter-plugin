@@ -1,15 +1,15 @@
 {
-  "name": "dpripa/wp-starter-plugin",
+  "name": "wp/plugin",
   "version": "1.0.0",
   "type": "wordpress-plugin",
-  "description": "WordPress Starter Plugin",
-  "homepage": "https://github.com/dpripa/wp-starter-plugin",
-  "license": "GPL-2.0-or-later",
+  "description": "",
+  "homepage": "https://wordpress.local",
+  "license": "",
   "authors": [
     {
-      "name": "Dmitry Pripa",
-      "email": "i@dpripa.com",
-      "homepage": "https://github.com/dpripa"
+      "name": "",
+      "email": "hello@wordpress.local",
+      "homepage": "https://wordpress.local"
     }
   ],
   "keywords": [

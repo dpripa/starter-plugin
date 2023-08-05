@@ -2,6 +2,8 @@
 
 namespace MyPlugin;
 
+use MyPlugin\Core\Daemon;
+
 defined('ABSPATH') || exit;
 
 final class Setup {
@@ -10,9 +12,13 @@ final class Setup {
 	}
 
 	public function init(): void {
-		load_plugin_textdomain(KEY, false, get_path('lang'));
+		new Setting();
+
 		add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
 	}
 
-	public function enqueue_assets(): void {}
+	public function enqueue_assets(): void {
+		app()->asset->enqueue_style('main');
+		app()->asset->enqueue_script('main');
+	}
 }

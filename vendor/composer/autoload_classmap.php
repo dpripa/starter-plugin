@@ -7,7 +7,21 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'MyPlugin\\App' => $baseDir . '/inc/App.php',
+    'MyPlugin\\Core\\Action' => $baseDir . '/inc/Core/Action.php',
+    'MyPlugin\\Core\\AdminNotice' => $baseDir . '/inc/Core/AdminNotice.php',
+    'MyPlugin\\Core\\App' => $baseDir . '/inc/Core/App.php',
+    'MyPlugin\\Core\\Arr' => $baseDir . '/inc/Core/Arr.php',
+    'MyPlugin\\Core\\Asset' => $baseDir . '/inc/Core/Asset.php',
+    'MyPlugin\\Core\\Bootstrap' => $baseDir . '/inc/Core/Bootstrap.php',
+    'MyPlugin\\Core\\FS' => $baseDir . '/inc/Core/FS.php',
+    'MyPlugin\\Core\\I18n' => $baseDir . '/inc/Core/I18n.php',
+    'MyPlugin\\Core\\Manager' => $baseDir . '/inc/Core/Manager.php',
+    'MyPlugin\\Core\\Setting' => $baseDir . '/inc/Core/Setting.php',
+    'MyPlugin\\Core\\Str' => $baseDir . '/inc/Core/Str.php',
+    'MyPlugin\\Core\\Template' => $baseDir . '/inc/Core/Template.php',
+    'MyPlugin\\Core\\Url' => $baseDir . '/inc/Core/Url.php',
+    'MyPlugin\\Setting' => $baseDir . '/inc/Setting.php',
+    'MyPlugin\\Setting\\General' => $baseDir . '/inc/Setting/General.php',
     'MyPlugin\\Setup' => $baseDir . '/inc/Setup.php',
-    'MyPlugin\\Simpleton' => $baseDir . '/inc/Simpleton.php',
-    'MyPlugin\\Template' => $baseDir . '/inc/Template.php',
 );
