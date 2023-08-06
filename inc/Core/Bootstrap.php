@@ -15,28 +15,15 @@ trait Bootstrap {
 		return self::$instance;
 	}
 
+	private $is_theme;
 	private $key;
 	private $root_file;
-	private $env;
 	private $daemon;
 
-	private function init(string $namespace, string $root_file): void {
+	private function init(string $namespace, string $root_file, bool $is_theme = false): void {
+		$this->is_theme = $is_theme;
 		$this->key = strtolower($namespace);
 		$this->root_file = $root_file;
-		$root_file_path_parts = explode(DIRECTORY_SEPARATOR, $root_file);
-		$parent_dir_number = count($root_file_path_parts) - 3;
-		$isset_root_dir = isset($root_file_path_parts[$parent_dir_number]);
-
-		if ($isset_root_dir && 'plugins' === $root_file_path_parts[$parent_dir_number]) {
-			$this->env = 'plugin';
-
-		} elseif ($isset_root_dir && 'themes' === $root_file_path_parts[$parent_dir_number]) {
-			$this->env = 'theme';
-
-		} else {
-			throw new \Exception('It looks like you are trying to pass a root file that isn\'t associated with either the theme or the plugin');
-		}
-
 		$this->daemon = Daemon::get_instance();
 	}
 
@@ -49,6 +36,6 @@ trait Bootstrap {
 	}
 
 	public function is_theme(): bool {
-		return 'theme' === $this->env;
+		return $this->is_theme;
 	}
 }

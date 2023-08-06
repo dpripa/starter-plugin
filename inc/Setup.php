@@ -2,8 +2,6 @@
 
 namespace MyPlugin;
 
-use MyPlugin\Core\Daemon;
-
 defined('ABSPATH') || exit;
 
 final class Setup {
