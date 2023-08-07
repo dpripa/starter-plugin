@@ -34,7 +34,7 @@ final class App implements Core\App {
 		$this->hook = new Core\Extension\Hook($this);
 		$this->asset = new Core\Extension\Asset($this, $this->fs);
 		$this->i18n = new Core\Extension\I18n($this, $this->fs);
-		$this->info = new Core\Extension\Info($this);
+		$this->info = new Core\Extension\Info($this, $this->fs);
 		$this->template = new Core\Extension\Template($this, $this->fs);
 		$this->setting = new Core\Extension\Setting($this, $this->daemon, $this->asset, $this->url);
 	}

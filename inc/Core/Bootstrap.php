@@ -24,7 +24,7 @@ trait Bootstrap {
 		$this->is_theme = $is_theme;
 		$this->key = strtolower($namespace);
 		$this->root_file = $root_file;
-		$this->daemon = Root\Daemon::get_instance();
+		$this->daemon = Daemon\App::get_instance();
 	}
 
 	public function get_key(string $key = ''): string {

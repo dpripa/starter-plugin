@@ -3,7 +3,7 @@
 namespace MyPlugin\Core\Extension;
 
 use MyPlugin\Core\App;
-use MyPlugin\Core\Root\Daemon;
+use MyPlugin\Core\Daemon;
 
 defined('ABSPATH') || exit;
 
@@ -13,7 +13,7 @@ class Setting {
 	protected $asset;
 	protected $url;
 
-	public function __construct(App $app, Daemon $daemon, Asset $asset, Url $url) {
+	public function __construct(App $app, Daemon\App $daemon, Asset $asset, Url $url) {
 		$this->key = $app->get_key();
 		$this->daemon = $daemon;
 		$this->asset = $asset;

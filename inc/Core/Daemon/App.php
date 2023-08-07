@@ -1,15 +1,13 @@
 <?php
 
-namespace MyPlugin\Core\Root;
+namespace MyPlugin\Core\Daemon;
 
-use MyPlugin\Core\App;
-use MyPlugin\Core\Extension;
-use MyPlugin\Core\Helper\Singleton;
+use MyPlugin\Core;
 
 defined('ABSPATH') || exit;
 
-final class Daemon implements App {
-	use Singleton;
+final class App implements Core\App {
+	use Core\Helper\Singleton;
 
 	private $key;
 	private $root_file;
@@ -18,11 +16,11 @@ final class Daemon implements App {
 	public $asset;
 
 	private function __construct() {
-		$str = Extension\Str::get_instance();
+		$str = Core\Extension\Str::get_instance();
 		$this->key = $str->generate_random();
 		$this->root_file = __FILE__;
-		$this->fs = new Extension\FS($this);
-		$this->asset = new Extension\Asset($this, $this->fs);
+		$this->fs = new Core\Extension\FS($this);
+		$this->asset = new Core\Extension\Asset($this, $this->fs);
 	}
 
 	public function get_key(string $key = ''): string {

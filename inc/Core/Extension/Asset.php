@@ -47,7 +47,7 @@ class Asset {
 		wp_add_inline_script($this->app->get_key($parent_name), $js_code, $position);
 	}
 
-	public function enqueue_style(string $name, array $deps = [], /* string|array */ $addition = null): void {
+	public function enqueue_style(string $name, array $deps = [], /* ?string|?array */ $addition = null): void {
 		$key = $this->app->get_key($name);
 		$filename = "$name{$this->args['postfix']}.css";
 		$rel = "{$this->args['asset_dir']}/{$this->args['style_dir']}/$filename";
@@ -60,10 +60,6 @@ class Asset {
 
 		wp_enqueue_style($key, $url, $deps, filemtime($path));
 
-		if (empty($addition)) {
-			return;
-		}
-
 		if (is_string($addition)) {
 			wp_add_inline_style($key, $addition);
 
@@ -75,6 +71,9 @@ class Asset {
 			}
 
 			wp_add_inline_style($key, "$css_vars}");
+
+		} elseif (!is_null($addition)) {
+			throw new \Exception('The $addition parameter must be a string, array or null');
 		}
 	}
 
