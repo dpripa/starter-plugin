@@ -24,10 +24,10 @@ final class App implements Core\App {
 	private function __construct(string $namespace, string $root_file) {
 		$this->init($namespace, $root_file);
 
-		$this->arr = new Core\Extension\Arr();
-		$this->env = new Core\Extension\Env();
-		$this->str = new Core\Extension\Str();
-		$this->url = new Core\Extension\Url();
+		$this->arr = Core\Extension\Arr::get_instance();
+		$this->env = Core\Extension\Env::get_instance();
+		$this->str = Core\Extension\Str::get_instance();
+		$this->url = Core\Extension\Url::get_instance();
 		$this->admin_notice = new Core\Extension\AdminNotice($this);
 		$this->form = new Core\Extension\Form($this, $this->url);
 		$this->fs = new Core\Extension\FS($this);

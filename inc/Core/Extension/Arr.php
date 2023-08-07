@@ -2,9 +2,13 @@
 
 namespace MyPlugin\Core\Extension;
 
+use MyPlugin\Core\Helper\Singleton;
+
 defined('ABSPATH') || exit;
 
 class Arr {
+	use Singleton;
+
 	public function map_associative(callable $callback, array $array): array {
 		$result = [];
 

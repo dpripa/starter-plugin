@@ -2,9 +2,13 @@
 
 namespace MyPlugin\Core\Extension;
 
+use MyPlugin\Core\Helper\Singleton;
+
 defined('ABSPATH') || exit;
 
 class Str {
+	use Singleton;
+
 	public function generate_random(int $length = 16, string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'): string {
 		$pieces = [];
 		$max = mb_strlen($keyspace, '8bit') - 1;

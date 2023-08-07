@@ -5,7 +5,7 @@ namespace MyPlugin\Core;
 defined('ABSPATH') || exit;
 
 final class Daemon implements App {
-	use Helper\Basic_Singleton;
+	use Helper\Singleton;
 
 	private $key;
 	private $root_file;
