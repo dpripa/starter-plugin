@@ -18,7 +18,7 @@ final class App implements Core\App {
 	private function __construct() {
 		$str = Core\Extension\Str::get_instance();
 		$this->key = $str->generate_random();
-		$this->root_file = __FILE__;
+		$this->root_file = str_replace('Daemon', 'Bootstrap.php', __DIR__);
 		$this->fs = new Core\Extension\FS($this);
 		$this->asset = new Core\Extension\Asset($this, $this->fs);
 	}

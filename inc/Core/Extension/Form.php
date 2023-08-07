@@ -10,10 +10,10 @@ class Form {
 	protected $app;
 	protected $url;
 	protected $args = [
-		'ajax_type' => 'wp_ajax',
-		'ajax_url' => 'admin-ajax',
 		'form_type' => 'admin_post',
 		'form_url' => 'admin-post',
+		'ajax_type' => 'wp_ajax',
+		'ajax_url' => 'admin-ajax',
 	];
 
 	public function __construct(App $app, Url $url) {
@@ -21,28 +21,28 @@ class Form {
 		$this->url = $url;
 	}
 
+	public function add(string $name, callable $callback): void {
+		$this->add_base('form', $name, $callback);
+	}
+
+	public function get_url(string $name = ''): string {
+		return $this->get_base_url('form', $name);
+	}
+
 	public function add_ajax(string $name, callable $callback): void {
-		$this->add('ajax', $name, $callback);
+		$this->add_base('ajax', $name, $callback);
 	}
 
 	public function get_ajax_url(string $name = ''): string {
-		return $this->get_url('ajax', $name);
+		return $this->get_base_url('ajax', $name);
 	}
 
-	public function add_form(string $name, callable $callback): void {
-		$this->add('form', $name, $callback);
-	}
-
-	public function get_form_url(string $name = ''): string {
-		return $this->get_url('form', $name);
-	}
-
-	protected function add(string $type, string $name, callable $callback): void {
+	protected function add_base(string $type, string $name, callable $callback): void {
 		add_action("{$this->args["{$type}_type"]}_" . $this->app->get_key($name), $callback);
 		add_action("{$this->args["{$type}_type"]}_nopriv_" . $this->app->get_key($name), $callback);
 	}
 
-	protected function get_url(string $type, string $name = ''): string {
+	protected function get_base_url(string $type, string $name = ''): string {
 		$url = $this->url->get_admin($this->args["{$type}_url"]);
 
 		if ($name) {

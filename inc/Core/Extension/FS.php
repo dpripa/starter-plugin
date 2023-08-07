@@ -18,7 +18,8 @@ class FS {
 			$url = get_theme_file_uri($rel);
 
 		} else {
-			$url = rtrim(plugin_dir_url($this->app->get_root_file()), '/\\') . $rel;
+			$url = plugin_dir_url($this->app->get_root_file());
+			$url = $rel ? ($url . $rel) : rtrim($url, '/\\');
 		}
 
 		if ($stamp) {
