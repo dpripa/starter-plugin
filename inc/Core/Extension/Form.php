@@ -6,7 +6,7 @@ use MyPlugin\Core\App;
 
 defined('ABSPATH') || exit;
 
-class Action {
+class Form {
 	protected $app;
 	protected $url;
 	protected $args = [
@@ -16,7 +16,7 @@ class Action {
 		'form_url' => 'admin-post',
 	];
 
-	protected function __construct(App $app, Url $url) {
+	public function __construct(App $app, Url $url) {
 		$this->app = $app;
 		$this->url = $url;
 	}

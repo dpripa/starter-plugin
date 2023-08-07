@@ -2,13 +2,9 @@
 
 namespace MyPlugin\Core\Extension;
 
-use MyPlugin\Core\Helper\Basic_Singleton;
-
 defined('ABSPATH') || exit;
 
 class Url {
-	use Basic_Singleton;
-
 	public function get_current(): string {
 		$path = add_query_arg(null, null);
 

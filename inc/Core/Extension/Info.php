@@ -6,7 +6,7 @@ use MyPlugin\Core\App;
 
 defined('ABSPATH') || exit;
 
-class Hook {
+class Info {
 	protected $app;
 
 	public function __construct(App $app) {
