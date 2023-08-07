@@ -3,7 +3,7 @@
 namespace MyPlugin\Core\Extension;
 
 use MyPlugin\Core\App;
-use MyPlugin\Core\Daemon;
+use MyPlugin\Core\Root\Daemon;
 
 defined('ABSPATH') || exit;
 

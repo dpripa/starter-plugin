@@ -1,11 +1,15 @@
 <?php
 
-namespace MyPlugin\Core;
+namespace MyPlugin\Core\Root;
+
+use MyPlugin\Core\App;
+use MyPlugin\Core\Extension;
+use MyPlugin\Core\Helper\Singleton;
 
 defined('ABSPATH') || exit;
 
 final class Daemon implements App {
-	use Helper\Singleton;
+	use Singleton;
 
 	private $key;
 	private $root_file;
