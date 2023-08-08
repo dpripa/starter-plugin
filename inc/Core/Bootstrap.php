@@ -39,7 +39,7 @@ trait Bootstrap {
 			$reflection = new \ReflectionClass($classname);
 
 			if (!$reflection->isFinal()) {
-				throw new \Exception("The $classname class associated with setup scope must be final.");
+				throw new \Exception("The $classname class associated with the setup scope must be final.");
 			}
 
 			if ($has_instance) {
