@@ -14,6 +14,7 @@ final class App implements Core\App {
 
 	public $fs;
 	public $asset;
+	public $hook;
 
 	private function __construct() {
 		$str = Core\Extension\Str::get_instance();
@@ -21,6 +22,11 @@ final class App implements Core\App {
 		$this->root_file = str_replace('Daemon', 'Bootstrap.php', __DIR__);
 		$this->fs = new Core\Extension\FS($this);
 		$this->asset = new Core\Extension\Asset($this, $this->fs);
+		$this->hook = new Core\Extension\Hook($this);
+	}
+
+	public function validate_setup(string $namespace): bool {
+		return false;
 	}
 
 	public function get_key(string $key = ''): string {

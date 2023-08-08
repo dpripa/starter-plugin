@@ -6,6 +6,10 @@ defined('ABSPATH') || exit;
 
 final class Setup {
 	public function __construct() {
+		if (app()->validate_setup(self::class)) {
+			return;
+		}
+
 		add_action('plugins_loaded', [$this, 'init']);
 	}
 

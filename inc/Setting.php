@@ -6,6 +6,10 @@ defined('ABSPATH') || exit;
 
 final class Setting {
 	public function __construct() {
+		if (app()->validate_setup(self::class)) {
+			return;
+		}
+
 		add_action('admin_menu', [$this, 'add_page']);
 		//add_action('admin_init', [$this, 'add_settings']);
 	}
