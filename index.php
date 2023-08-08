@@ -13,18 +13,18 @@
 
 namespace MyPlugin;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 $autoload = __DIR__ . '/vendor/autoload.php';
 
-if (!file_exists($autoload)) {
-	throw new \Exception('Autoloader not exists');
+if ( ! file_exists( $autoload ) ) {
+	throw new \Exception( 'Autoloader not exists' );
 }
 
 require_once $autoload;
 
 function app(): App {
-	return App::get_instance(__NAMESPACE__, __FILE__);
+	return App::get_instance( __NAMESPACE__, __FILE__ );
 }
 
 new Setup();

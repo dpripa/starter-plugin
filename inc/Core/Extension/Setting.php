@@ -14,18 +14,18 @@ class Setting {
 	private $handler;
 	private $args;
 
-	private $default_args = [
+	private $default_args = array(
 		'render_header_func' => null,
 		'render_footer_func' => null,
 		'submit_btn'         => 'Save changes',
 		'error_notice'       => 'Something went wrong.',
 		'success_notice'     => 'Changes saved.',
 		'required_label'     => 'required',
-	];
+	);
 
 	public function __construct() {}
 
-	public function init( Framework $framework, array $args = [] ): self {
+	public function init( Framework $framework, array $args = array() ): self {
 		$core_class           = ( new \ReflectionClass( $framework ) )->getNamespaceName() . '\\Core';
 		$this->core           = $core_class::get_instance( $framework->get_app_key() );
 		$this->context        = new Context();
@@ -65,7 +65,7 @@ class Setting {
 				}
 
 				$this->core->asset()
-					->enqueue_script( ROOT_FILE, 'main', [ 'jquery' ] )
+					->enqueue_script( ROOT_FILE, 'main', array( 'jquery' ) )
 					->enqueue_style( ROOT_FILE, 'main' );
 
 				$this->handler->init(
@@ -176,7 +176,7 @@ class Setting {
 		return $this;
 	}
 
-	public function add( string $setting, string $type, ?string $title, array $args = [] ): self {
+	public function add( string $setting, string $type, ?string $title, array $args = array() ): self {
 		$page    = $this->shadow_context->get_page();
 		$tab     = $this->shadow_context->get_tab();
 		$sub_tab = $this->shadow_context->get_sub_tab();
@@ -298,7 +298,7 @@ class Setting {
 		return $this->storage->get_page( $page )['object']->get_url();
 	}
 
-	public function render_control( string $type, string $key, /* mixed */ $value, ?string $title, array $args = [] ): self {
+	public function render_control( string $type, string $key, /* mixed */ $value, ?string $title, array $args = array() ): self {
 		Control::render_custom( $type, $key, $value, $title, $args, $this->args['required_label'] );
 
 		return $this;

@@ -41,7 +41,7 @@ class Tab {
 		add_action(
 			'admin_menu',
 			function (): void {
-				$this->core->hook()->add_action( 'setting_page', [ $this, 'render' ] );
+				$this->core->hook()->add_action( 'setting_page', array( $this, 'render' ) );
 			},
 			8
 		);
@@ -53,10 +53,10 @@ class Tab {
 
 	public function get_url(): string {
 		return add_query_arg(
-			[
+			array(
 				'page' => $this->storage->get_page_key( $this->page ),
 				'tab'  => $this->tab,
-			],
+			),
 			$this->framework->url()->get_admin(
 				$this->storage->get_page( $this->page )['base_url']
 			)

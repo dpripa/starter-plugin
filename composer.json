@@ -34,6 +34,7 @@
   "scripts": {
     "install-no-dev": "composer install --no-dev",
     "optimize-autoloader": "composer dump-autoload --optimize",
-    "lint-php": "phpcs"
+    "lint-php": "phpcs",
+    "format-php": "phpcbf"
   }
 }

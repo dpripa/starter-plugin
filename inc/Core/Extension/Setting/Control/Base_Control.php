@@ -6,12 +6,12 @@ defined( 'ABSPATH' ) || exit;
 
 abstract class Base_Control {
 
-	protected static $default_base_args = [
+	protected static $default_base_args = array(
 		'description' => '',
 		'width'       => 300,
 		'placeholder' => '',
 		'required'    => false,
-	];
+	);
 
 	abstract public static function render( string $type, string $name, /* mixed */ $value, ?string $title, array $args ): void;
 

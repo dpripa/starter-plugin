@@ -4,7 +4,7 @@ namespace MyPlugin\Core\Daemon;
 
 use MyPlugin\Core;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 final class App implements Core\App {
 	use Core\Helper\Singleton;
@@ -17,19 +17,19 @@ final class App implements Core\App {
 	public $hook;
 
 	private function __construct() {
-		$str = Core\Extension\Str::get_instance();
-		$this->key = $str->generate_random();
-		$this->root_file = str_replace('Daemon', 'Bootstrap.php', __DIR__);
-		$this->fs = new Core\Extension\FS($this);
-		$this->asset = new Core\Extension\Asset($this, $this->fs);
-		$this->hook = new Core\Extension\Hook($this);
+		$str             = Core\Extension\Str::get_instance();
+		$this->key       = $str->generate_random();
+		$this->root_file = str_replace( 'Daemon', 'Bootstrap.php', __DIR__ );
+		$this->fs        = new Core\Extension\FS( $this );
+		$this->asset     = new Core\Extension\Asset( $this, $this->fs );
+		$this->hook      = new Core\Extension\Hook( $this );
 	}
 
-	public function validate_setup(string $namespace): bool {
+	public function validate_setup( string $namespace ): bool {
 		return false;
 	}
 
-	public function get_key(string $key = ''): string {
+	public function get_key( string $key = '' ): string {
 		return $this->key;
 	}
 

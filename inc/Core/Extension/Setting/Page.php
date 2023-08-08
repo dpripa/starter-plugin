@@ -67,7 +67,7 @@ class Page {
 						$this->nav_title,
 						$this->capability,
 						$this->key,
-						[ $this, 'render' ],
+						array( $this, 'render' ),
 						$this->position
 					);
 
@@ -77,7 +77,7 @@ class Page {
 						$this->nav_title,
 						$this->capability,
 						$this->key,
-						[ $this, 'render' ],
+						array( $this, 'render' ),
 						$this->icon_url ?? '',
 						$this->position
 					);
@@ -89,9 +89,9 @@ class Page {
 
 	public function get_url(): string {
 		return add_query_arg(
-			[
+			array(
 				'page' => $this->storage->get_page_key( $this->page ),
-			],
+			),
 			$this->framework->url()->get_admin(
 				$this->storage->get_page( $this->page )['base_url']
 			)

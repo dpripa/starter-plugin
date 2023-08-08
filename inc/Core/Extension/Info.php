@@ -4,7 +4,7 @@ namespace MyPlugin\Core\Extension;
 
 use MyPlugin\Core\App;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 class Info {
 	protected $name;
@@ -18,27 +18,27 @@ class Info {
 	protected $requires_php;
 	protected $requires_wp;
 
-	protected $headers = [
-		'version' => 'Version',
-		'description' => 'Description',
-		'author' => 'Author',
-		'author_url' => 'Author URI',
-		'textdomain' => 'Text Domain',
-		'domain_path' => 'Domain Path',
-		'requires_wp' => 'Requires at least',
+	protected $headers = array(
+		'version'      => 'Version',
+		'description'  => 'Description',
+		'author'       => 'Author',
+		'author_url'   => 'Author URI',
+		'textdomain'   => 'Text Domain',
+		'domain_path'  => 'Domain Path',
+		'requires_wp'  => 'Requires at least',
 		'requires_php' => 'Requires PHP',
-	];
+	);
 
-	public function __construct(App $app, FS $fs) {
-		if ($app->is_theme()) {
-			$file = $fs->get_path('style.css');
+	public function __construct( App $app, FS $fs ) {
+		if ( $app->is_theme() ) {
+			$file                  = $fs->get_path( 'style.css' );
 			$this->headers['name'] = 'Theme Name';
-			$this->headers['url'] = 'Theme URI';
+			$this->headers['url']  = 'Theme URI';
 
 		} else {
-			$file = $app->get_root_file();
+			$file                  = $app->get_root_file();
 			$this->headers['name'] = 'Plugin Name';
-			$this->headers['url'] = 'Plugin URI';
+			$this->headers['url']  = 'Plugin URI';
 		}
 
 		$info = get_file_data(
@@ -46,15 +46,15 @@ class Info {
 			$this->headers
 		);
 
-		$this->name = $info['name'];
-		$this->url = $info['url'];
-		$this->version = $info['version'];
-		$this->description = $info['description'];
-		$this->author = $info['author'];
-		$this->author_url = $info['author_url'];
-		$this->textdomain = $info['textdomain'];
-		$this->domain_path = $info['domain_path'];
-		$this->requires_wp = $info['requires_wp'];
+		$this->name         = $info['name'];
+		$this->url          = $info['url'];
+		$this->version      = $info['version'];
+		$this->description  = $info['description'];
+		$this->author       = $info['author'];
+		$this->author_url   = $info['author_url'];
+		$this->textdomain   = $info['textdomain'];
+		$this->domain_path  = $info['domain_path'];
+		$this->requires_wp  = $info['requires_wp'];
 		$this->requires_php = $info['requires_php'];
 	}
 

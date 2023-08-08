@@ -44,7 +44,7 @@ class Sub_Tab {
 		add_action(
 			'admin_menu',
 			function (): void {
-				$this->core->hook()->add_action( 'setting_tab', [ $this, 'render' ], 10, 2 );
+				$this->core->hook()->add_action( 'setting_tab', array( $this, 'render' ), 10, 2 );
 			},
 			7
 		);
@@ -56,11 +56,11 @@ class Sub_Tab {
 
 	public function get_url(): string {
 		return add_query_arg(
-			[
+			array(
 				'page'    => $this->storage->get_page_key( $this->page ),
 				'tab'     => $this->tab,
 				'sub_tab' => $this->sub_tab,
-			],
+			),
 			$this->framework->url()->get_admin(
 				$this->storage->get_page( $this->page )['base_url']
 			)

@@ -44,20 +44,20 @@ class Content {
 			'admin_menu',
 			function (): void {
 				if ( $this->box ) {
-					$this->core->hook()->add_action( 'setting_box', [ $this, 'render_in_box' ], 10, 4 );
+					$this->core->hook()->add_action( 'setting_box', array( $this, 'render_in_box' ), 10, 4 );
 
 				} elseif ( $this->sub_tab ) {
-					$this->core->hook()->add_action( 'setting_sub_tab', [ $this, 'render_in_sub_tab' ], 10, 3 );
+					$this->core->hook()->add_action( 'setting_sub_tab', array( $this, 'render_in_sub_tab' ), 10, 3 );
 
 				} elseif ( $this->tab ) {
-					$this->core->hook()->add_action( 'setting_tab', [ $this, 'render_in_tab' ], 10, 2 );
+					$this->core->hook()->add_action( 'setting_tab', array( $this, 'render_in_tab' ), 10, 2 );
 
 				} else {
-					$this->core->hook()->add_action( 'setting_page', [ $this, 'render_in_page' ] );
+					$this->core->hook()->add_action( 'setting_page', array( $this, 'render_in_page' ) );
 				}
 
 				if ( is_callable( $this->custom_handler ) ) {
-					$this->core->hook()->add_action( 'setting_custom_handler', [ $this, 'add_custom_handler' ], 10, 3 );
+					$this->core->hook()->add_action( 'setting_custom_handler', array( $this, 'add_custom_handler' ), 10, 3 );
 				}
 			},
 			5

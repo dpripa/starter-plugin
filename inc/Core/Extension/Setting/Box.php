@@ -42,10 +42,10 @@ class Box {
 			'admin_menu',
 			function (): void {
 				if ( $this->sub_tab ) {
-					$this->core->hook()->add_action( 'setting_sub_tab', [ $this, 'render_in_sub_tab' ], 10, 3 );
+					$this->core->hook()->add_action( 'setting_sub_tab', array( $this, 'render_in_sub_tab' ), 10, 3 );
 
 				} else {
-					$this->core->hook()->add_action( 'setting_tab', [ $this, 'render_in_tab' ], 10, 2 );
+					$this->core->hook()->add_action( 'setting_tab', array( $this, 'render_in_tab' ), 10, 2 );
 				}
 			},
 			6

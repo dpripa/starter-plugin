@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Textarea extends Control {
 
-	protected static $default_args = [];
+	protected static $default_args = array();
 
 	public static function render( string $type, string $name, /* mixed */ $value, ?string $title, array $args ): void {
 		$args = wp_parse_args(

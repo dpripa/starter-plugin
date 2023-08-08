@@ -6,9 +6,9 @@ defined( 'ABSPATH' ) || exit;
 
 class Radio extends Control {
 
-	protected static $default_args = [
-		'options' => [],
-	];
+	protected static $default_args = array(
+		'options' => array(),
+	);
 
 	public static function render( string $type, string $name, /* array|string|null */ $value, ?string $title, array $args ): void { // phpcs:ignore
 		$args = wp_parse_args(

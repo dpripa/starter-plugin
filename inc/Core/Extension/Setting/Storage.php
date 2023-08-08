@@ -12,7 +12,7 @@ class Storage {
 	protected $framework;
 	protected $core;
 
-	protected $instances = [];
+	protected $instances = array();
 
 	public function __construct( Framework $framework, Core $core ) {
 		$this->framework = $framework;
@@ -31,7 +31,7 @@ class Storage {
 		?string $submit_btn,
 		?string $handler_url
 	): void {
-		$this->instances[ $page ] = [
+		$this->instances[ $page ] = array(
 			'object'   => new Page(
 				$this->framework,
 				$this->core,
@@ -48,12 +48,12 @@ class Storage {
 				$handler_url
 			),
 			'base_url' => $this->is_page( $parent ) ? 'admin' : str_replace( '.php', '', $parent ),
-			'children' => [],
-		];
+			'children' => array(),
+		);
 	}
 
 	public function add_tab( string $tab, string $page, string $nav_title, ?string $title, ?string $description ): void {
-		$this->instances[ $page ]['children'][ $tab ] = [
+		$this->instances[ $page ]['children'][ $tab ] = array(
 			'object'   => new Tab(
 				$this->framework,
 				$this->core,
@@ -64,12 +64,12 @@ class Storage {
 				$title,
 				$description
 			),
-			'children' => [],
-		];
+			'children' => array(),
+		);
 	}
 
 	public function add_sub_tab( string $sub_tab, string $tab, string $page, string $nav_title, ?string $title, ?string $description ): void {
-		$this->instances[ $page ]['children'][ $tab ]['children'][ $sub_tab ] = [
+		$this->instances[ $page ]['children'][ $tab ]['children'][ $sub_tab ] = array(
 			'object'   => new Sub_Tab(
 				$this->framework,
 				$this->core,
@@ -81,12 +81,12 @@ class Storage {
 				$title,
 				$description
 			),
-			'children' => [],
-		];
+			'children' => array(),
+		);
 	}
 
 	public function add_box( string $box, ?string $sub_tab, string $tab, string $page, ?string $title, ?string $description ): void {
-		$data = [
+		$data = array(
 			'object'   => new Box(
 				$this->core,
 				$this,
@@ -97,8 +97,8 @@ class Storage {
 				$title,
 				$description
 			),
-			'children' => [],
-		];
+			'children' => array(),
+		);
 
 		if ( $sub_tab ) {
 			$this->instances[ $page ]['children'][ $tab ]['children'][ $sub_tab ]['children'][ $box ] = $data;
@@ -117,7 +117,7 @@ class Storage {
 		callable $render_content,
 		?callable $custom_handler
 	): void {
-		$data = [
+		$data = array(
 			'object'   => new Content(
 				$this->core,
 				$this,
@@ -129,8 +129,8 @@ class Storage {
 				$render_content,
 				$custom_handler
 			),
-			'children' => [],
-		];
+			'children' => array(),
+		);
 
 		if ( $box ) {
 			$this->add_to_box(
@@ -165,7 +165,7 @@ class Storage {
 		string $required_label
 	): void {
 		$this->add_to_box(
-			[
+			array(
 				'object' => new Setting(
 					$this->core,
 					$this,
@@ -179,7 +179,7 @@ class Storage {
 					$args,
 					$required_label
 				),
-			],
+			),
 			$setting,
 			$box,
 			$sub_tab,
@@ -275,7 +275,7 @@ class Storage {
 			return false;
 		}
 
-		return in_array( $tab, array_keys( $page_data['children'] ?? [] ), true );
+		return in_array( $tab, array_keys( $page_data['children'] ?? array() ), true );
 	}
 
 	public function is_sub_tab( string $sub_tab, string $tab, string $page ): bool {
@@ -297,7 +297,7 @@ class Storage {
 			return false;
 		}
 
-		return in_array( $box, array_keys( $tab_or_sub_tab_data['children'] ?? [] ), true );
+		return in_array( $box, array_keys( $tab_or_sub_tab_data['children'] ?? array() ), true );
 	}
 
 	public function is_content( string $content, ?string $box, ?string $sub_tab, ?string $tab, string $page ): bool {
@@ -318,7 +318,7 @@ class Storage {
 			return false;
 		}
 
-		return in_array( $content, array_keys( $parent_data['children'] ?? [] ), true );
+		return in_array( $content, array_keys( $parent_data['children'] ?? array() ), true );
 	}
 
 	public function is_setting( string $setting, string $box, ?string $sub_tab, string $tab, string $page ): bool {
@@ -328,7 +328,7 @@ class Storage {
 			return false;
 		}
 
-		return in_array( $setting, array_keys( $box_data['children'] ?? [] ), true );
+		return in_array( $setting, array_keys( $box_data['children'] ?? array() ), true );
 	}
 
 	public function is_active_page( string $page ): bool {
@@ -402,7 +402,7 @@ class Storage {
 				return isset( $child['object'] ) &&
 					is_a( $child['object'], $classname );
 			}
-		) : [];
+		) : array();
 	}
 
 	public function has_setting( string $page, ?string $tab = null, ?string $sub_tab = null ): bool {

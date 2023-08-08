@@ -26,7 +26,7 @@ class Handler {
 
 	public function get_url(): string {
 		return add_query_arg(
-			[ $this->action_key => true ],
+			array( $this->action_key => true ),
 			$this->framework->url()->get_current()
 		);
 	}
@@ -69,7 +69,7 @@ class Handler {
 	}
 
 	protected function get_settings_data(): array {
-		$settings  = [];
+		$settings  = array();
 		$page_data = $this->storage->get_page(
 			$this->storage->get_active_page( true )
 		);
@@ -104,10 +104,10 @@ class Handler {
 						isset( $box_data['object'] ) &&
 						is_a( $box_data['object'], Setting::class )
 					) {
-						$settings[] = [
+						$settings[] = array(
 							'key'               => $box_data['object']->get_key(),
 							'sanitize_callback' => $box_data['object']->get_sanitize_callback(),
-						];
+						);
 					}
 
 					if ( empty( $box_data['children'] ) ) {
@@ -119,10 +119,10 @@ class Handler {
 							isset( $setting_data['object'] ) &&
 							is_a( $setting_data['object'], Setting::class )
 						) {
-							$settings[] = [
+							$settings[] = array(
 								'key'               => $setting_data['object']->get_key(),
 								'sanitize_callback' => $setting_data['object']->get_sanitize_callback(),
-							];
+							);
 						}
 					}
 				}

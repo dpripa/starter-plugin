@@ -6,10 +6,10 @@ defined( 'ABSPATH' ) || exit;
 
 class Text extends Control {
 
-	protected static $default_args = [
+	protected static $default_args = array(
 		'placeholder' => '',
 		'width'       => 300,
-	];
+	);
 
 	public static function render( string $type, string $name, /* mixed */ $value, ?string $title, array $args ): void {
 		if ( 'number' === $type && empty( $args['width'] ) ) {

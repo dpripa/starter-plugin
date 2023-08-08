@@ -23,10 +23,10 @@ class Setting {
 	protected $required_label;
 	protected $sanitize_callback;
 
-	protected $default_args = [
+	protected $default_args = array(
 		'default'           => null,
 		'sanitize_callback' => 'sanitize_text_field',
-	];
+	);
 
 	public function __construct(
 		Core $core,
@@ -59,7 +59,7 @@ class Setting {
 		add_action(
 			'admin_menu',
 			function (): void {
-				$this->core->hook()->add_action( 'setting_box', [ $this, 'render' ], 10, 4 );
+				$this->core->hook()->add_action( 'setting_box', array( $this, 'render' ), 10, 4 );
 			},
 			5
 		);

@@ -2,6 +2,6 @@
 
 namespace MyPlugin\Setting;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 final class General {}

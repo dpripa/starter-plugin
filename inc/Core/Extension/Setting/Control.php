@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Control {
 
-	protected static $control_classes = [
+	protected static $control_classes = array(
 		'checkbox' => Control\Checkbox::class,
 		'radio'    => Control\Radio::class,
 		'select'   => Control\Select::class,
@@ -15,7 +15,7 @@ class Control {
 		'email'    => Control\Text::class,
 		'tel'      => Control\Text::class,
 		'textarea' => Control\Textarea::class,
-	];
+	);
 
 	public static function render(
 		string $type,
@@ -51,11 +51,11 @@ class Control {
 		<tr class="c0r3-control">
 			<?php if ( $title_method_exists ) { ?>
 				<th class="c0r3-control__title" scope="row">
-					<?php call_user_func( [ $control_classname, 'render_title' ], $type, $key, $title, $args, $required_label ); ?>
+					<?php call_user_func( array( $control_classname, 'render_title' ), $type, $key, $title, $args, $required_label ); ?>
 				</th>
 			<?php } ?>
 			<td class="c0r3-control__body" <?php echo $title_method_exists ? '' : 'colspan="2"'; ?>>
-				<?php call_user_func( [ $control_classname, 'render' ], $type, $key, $value, $title, $args ); ?>
+				<?php call_user_func( array( $control_classname, 'render' ), $type, $key, $value, $title, $args ); ?>
 			</td>
 		</tr>
 		<?php

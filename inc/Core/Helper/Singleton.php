@@ -2,13 +2,13 @@
 
 namespace MyPlugin\Core\Helper;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 trait Singleton {
 	private static $instance;
 
 	public static function get_instance(): self {
-		if (empty(self::$instance)) {
+		if ( empty( self::$instance ) ) {
 			self::$instance = new self();
 		}
 
