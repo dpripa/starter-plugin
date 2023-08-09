@@ -19,7 +19,6 @@ final class App implements Core\App {
 	public $i18n;
 	public $info;
 	public $template;
-	public $setting;
 
 	private function __construct( string $namespace, string $root_file ) {
 		$this->init( $namespace, $root_file );
@@ -36,6 +35,5 @@ final class App implements Core\App {
 		$this->i18n         = new Core\Extension\I18n( $this, $this->fs );
 		$this->info         = new Core\Extension\Info( $this, $this->fs );
 		$this->template     = new Core\Extension\Template( $this, $this->fs );
-		// $this->setting = new Core\Extension\Setting($this, $this->daemon, $this->asset, $this->url);
 	}
 }

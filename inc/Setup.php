@@ -14,8 +14,6 @@ final class Setup {
 	}
 
 	public function init(): void {
-		new Setting();
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 

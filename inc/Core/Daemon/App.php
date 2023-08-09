@@ -15,6 +15,7 @@ final class App implements Core\App {
 	public $fs;
 	public $asset;
 	public $hook;
+	public $url;
 
 	private function __construct() {
 		$str             = Core\Extension\Str::get_instance();
@@ -23,6 +24,7 @@ final class App implements Core\App {
 		$this->fs        = new Core\Extension\FS( $this );
 		$this->asset     = new Core\Extension\Asset( $this, $this->fs );
 		$this->hook      = new Core\Extension\Hook( $this );
+		$this->url       = Core\Extension\Url::get_instance();
 	}
 
 	public function validate_setup( string $namespace ): bool {

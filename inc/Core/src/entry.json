@@ -1,6 +1,6 @@
 {
-  "setting": [
-    "./script/setting.js",
-    "./style/setting.scss"
+  "": [
+    "./script/.js",
+    "./style/.scss"
   ]
 }

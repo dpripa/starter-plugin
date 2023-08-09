@@ -51,7 +51,7 @@ trait Bootstrap {
 	}
 
 	public function get_key( string $key = '' ): string {
-		return str_replace( '_', '-', $this->key . ( $key ? ( "_$key" ) : '' ) );
+		return $this->key . ( $key ? ( "_$key" ) : '' );
 	}
 
 	public function get_root_file(): string {
