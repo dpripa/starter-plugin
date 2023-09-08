@@ -2,14 +2,14 @@
   "name": "plugin-src",
   "version": "1.0.0",
   "description": "",
-  "homepage": "",
+  "homepage": "https://wordpress.local",
   "license": "",
   "private": true,
   "contributors": [
     {
-      "name": "",
-      "email": "",
-      "homepage": ""
+      "name": "WordPress Developer",
+      "email": "developer@wordpress.local",
+      "homepage": "https://wordpress.local"
     }
   ],
   "keywords": [
