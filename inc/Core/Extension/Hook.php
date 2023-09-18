@@ -2,7 +2,7 @@
 
 namespace MyPlugin\Core\Extension;
 
-use MyPlugin\Core\App;
+use O0W7_1\App;
 
 defined( 'ABSPATH' ) || exit;
 

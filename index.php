@@ -15,6 +15,8 @@ namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
+require_once WP_CONTENT_DIR . '/dev/framework/index.php';
+
 $autoload = __DIR__ . '/vendor/autoload.php';
 
 if ( ! file_exists( $autoload ) ) {

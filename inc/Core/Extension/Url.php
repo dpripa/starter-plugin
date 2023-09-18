@@ -2,7 +2,7 @@
 
 namespace MyPlugin\Core\Extension;
 
-use MyPlugin\Core\Helper\Singleton;
+use O0W7_1\Helper\Singleton;
 
 defined( 'ABSPATH' ) || exit;
 

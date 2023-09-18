@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "type": "wordpress-plugin",
   "description": "",
-  "homepage": "https://wordpress.local",
+  "homepage": "https://wp.local",
   "license": "",
   "authors": [
     {
-      "name": "WordPress Developer",
-      "email": "developer@wordpress.local",
-      "homepage": "https://wordpress.local"
+      "name": "developer",
+      "email": "developer@wp.local",
+      "homepage": "https://wp.local"
     }
   ],
   "keywords": [

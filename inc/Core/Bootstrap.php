@@ -27,7 +27,7 @@ trait Bootstrap {
 		$this->is_theme  = $is_theme;
 		$this->key       = strtolower( $namespace );
 		$this->root_file = $root_file;
-		$this->daemon    = Daemon\App::get_instance();
+		$this->daemon    = \O0W7_1\Daemon\App::get_instance();
 	}
 
 	public function validate_setup( string $classname ): bool {
