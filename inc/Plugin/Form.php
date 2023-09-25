@@ -21,7 +21,7 @@ class Form {
 	}
 
 	public static function get_post_url( string $name = '' ): string {
-		static::get_url( 'post', $name );
+		return static::get_url('post', $name);
 	}
 
 	public static function add_ajax( string $name, callable $callback ): void {
