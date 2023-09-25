@@ -25,7 +25,7 @@ class Form {
 	}
 
 	public static function add_ajax( string $name, callable $callback ): void {
-		static::add( 'ajax', $name, $callback );
+		static::add('ajax', $name, $callback);
 	}
 
 	public static function get_ajax_url( string $name = '' ): string {
