@@ -29,7 +29,7 @@ class Form {
 	}
 
 	public static function get_ajax_url( string $name = '' ): string {
-		return static::get_url( 'ajax', $name );
+		return static::get_url('ajax', $name);
 	}
 
 	protected static function add( string $type, string $name, callable $callback ): void {
