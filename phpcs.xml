@@ -1,20 +1,22 @@
 <?xml version="1.0"?>
-<ruleset name="BSWPCS">
-	<description>BizSwoop WordPress Coding Standards</description>
-
+<ruleset>
 	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs"/>
 	<rule ref="WordPress"/>
 	<config name="minimum_supported_wp_version" value="5.0.0"/>
 
 	<file>.</file>
 	<exclude-pattern>asset/*</exclude-pattern>
-	<exclude-pattern>lang/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>src/*</exclude-pattern>
-	<exclude-pattern>tool/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
 
 	<rule ref="WordPress.PHP">
 		<exclude name="WordPress.PHP.DisallowShortTernary"/>
+	</rule>
+
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
 	</rule>
 
 	<rule ref="WordPress.WP.I18n">
@@ -27,14 +29,7 @@
 	</rule>
 
 	<rule ref="Squiz.Commenting">
-		<exclude name="Squiz.Commenting.FileComment.Missing"/>
-		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
-		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
-		<exclude name="Squiz.Commenting.VariableComment.Missing"/>
-		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
-		<exclude name="Squiz.Commenting.LongConditionClosingComment.Missing"/>
-		<exclude name="Squiz.Commenting.FunctionComment.WrongStyle"/>
-		<exclude name="Squiz.Commenting.ClassComment.WrongStyle"/>
+		<exclude name="Squiz.Commenting"/>
 	</rule>
 
 	<rule ref="WordPress.Files.FileName">

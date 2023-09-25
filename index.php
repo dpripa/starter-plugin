@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: My Plugin
+ * Plugin Name: Plugin
  * Plugin URI: https://wordpress.org
- * Description: WordPress Plugin.
+ * Description: WordPress Plugin
  * Version: 1.0.0
  * Text Domain: my_plugin
  * Author: Developer
@@ -15,7 +15,8 @@ namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-require_once WP_CONTENT_DIR . '/dev/framework/index.php';
+const KEY       = 'my_plugin';
+const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';
 
@@ -24,9 +25,5 @@ if ( ! file_exists( $autoload ) ) {
 }
 
 require_once $autoload;
-
-function app(): App {
-	return App::get_instance( __NAMESPACE__, __FILE__ );
-}
 
 new Setup();

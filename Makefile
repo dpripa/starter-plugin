@@ -1,1 +1,8 @@
 init:
+	composer install && npm install && npm run build
+
+init-prod:
+	composer run no-dev && npm install && npm run build
+
+pre-commit:
+	composer run lint && npm run lint-style && npm run lint-script

@@ -4,7 +4,7 @@
   "type": "wordpress-plugin",
   "description": "",
   "homepage": "https://wp.local",
-  "license": "",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "developer",
@@ -32,9 +32,9 @@
     "wp-coding-standards/wpcs": "^2.2.1"
   },
   "scripts": {
-    "install-no-dev": "composer install --no-dev",
-    "optimize-autoloader": "composer dump-autoload --optimize",
-    "lint-php": "phpcs",
-    "format-php": "phpcbf"
+    "no-dev": "composer install --no-dev",
+    "optimize": "composer dump-autoload --optimize",
+    "lint": "phpcs",
+    "fix": "phpcbf"
   }
 }

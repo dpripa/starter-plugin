@@ -1,12 +1,8 @@
-auth.json
+asset
 node_modules
-.env
-vendor/*
-!vendor/autoload.php
-!vendor/composer
-vendor/composer/installed.json
-vendor/composer/installed.php
-vendor/composer/installedVersions.php
+vendor
 .DS_Store
-Thumbs.db
+.env
+auth.json
 ehthumbs.db
+Thumbs.db
