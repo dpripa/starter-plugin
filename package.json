@@ -72,8 +72,5 @@
     "prepare": "husky install",
     "lint-style": "npx stylelint --allow-empty-input 'src/**/*.{css,scss}'",
     "lint-script": "npx eslint 'src/**/*.js'"
-  },
-  "pre-commit": {
-    "*": "make pre-commit"
   }
 }
