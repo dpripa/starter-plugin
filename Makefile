@@ -1,5 +1,5 @@
 init:
-	composer install && npm install && npm run build
+	composer install && npm install && npm run build && npm run prepare
 
 init-prod:
 	composer run no-dev && npm install && npm run build

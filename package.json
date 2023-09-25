@@ -69,6 +69,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --watch",
     "build": "cross-env NODE_ENV=production webpack",
+    "prepare": "husky install",
     "lint-style": "npx stylelint --allow-empty-input 'src/**/*.{css,scss}'",
     "lint-script": "npx eslint 'src/**/*.js'"
   },
