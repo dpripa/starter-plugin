@@ -17,7 +17,7 @@ class Form {
 	);
 
 	public static function add_post( string $name, callable $callback ): void {
-		static::add( 'post', $name, $callback );
+		static::add('post', $name, $callback);
 	}
 
 	public static function get_post_url( string $name = '' ): string {
@@ -29,7 +29,7 @@ class Form {
 	}
 
 	public static function get_ajax_url( string $name = '' ): string {
-		return static::get_url('ajax', $name);
+		return static::get_url( 'ajax', $name );
 	}
 
 	protected static function add( string $type, string $name, callable $callback ): void {
