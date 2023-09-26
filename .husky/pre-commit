@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx validate-branch-name
-npx lint-staged
+composer run lint
+npm run lint-style
+npm run lint-script

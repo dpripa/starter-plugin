@@ -17,15 +17,15 @@ class Form {
 	);
 
 	public static function add_post( string $name, callable $callback ): void {
-		static::add('post', $name, $callback);
+		static::add( 'post', $name, $callback );
 	}
 
 	public static function get_post_url( string $name = '' ): string {
-		return static::get_url('post', $name);
+		return static::get_url( 'post', $name );
 	}
 
 	public static function add_ajax( string $name, callable $callback ): void {
-		static::add('ajax', $name, $callback);
+		static::add( 'ajax', $name, $callback );
 	}
 
 	public static function get_ajax_url( string $name = '' ): string {
