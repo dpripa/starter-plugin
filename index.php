@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name: Plugin
+ * Plugin Name: Main Plugin
  * Plugin URI: https://wordpress.org
- * Description: WordPress Plugin
+ * Description: The WordPress Plugin
  * Version: 1.0.0
- * Text Domain: my_plugin
+ * Text Domain: main_plugin
  * Author: Developer
  * Author URI: https://wordpress.org
  * Requires PHP: 7.2.0
  * Requires at least: 5.0.0
  */
 
-namespace MyPlugin;
+namespace MainPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-const KEY       = 'my_plugin';
+const KEY       = 'main_plugin';
 const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';

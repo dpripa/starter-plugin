@@ -1,5 +1,5 @@
 {
-  "name": "wp/plugin",
+  "name": "main/plugin",
   "version": "1.0.0",
   "type": "wordpress-plugin",
   "description": "",
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MyPlugin\\": "inc/"
+      "MainPlugin\\": "inc/"
     }
   },
   "require": {

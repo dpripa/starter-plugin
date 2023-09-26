@@ -1,7 +1,7 @@
 <?php
-namespace MyPlugin\Plugin;
+namespace MainPlugin\Plugin;
 
-use const MyPlugin\ROOT_FILE;
+use const MainPlugin\ROOT_FILE;
 
 defined( 'ABSPATH' ) || exit;
 
