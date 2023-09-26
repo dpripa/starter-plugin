@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-composer run lint
-npm run lint-style
-npm run lint-script
+make lint

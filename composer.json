@@ -33,7 +33,6 @@
   },
   "scripts": {
     "no-dev": "composer install --no-dev",
-    "optimize": "composer dump-autoload --optimize",
     "lint": "phpcs",
     "fix": "phpcbf"
   }
