@@ -1,5 +1,6 @@
 {
   "directories": [
+    "asset",
     "inc",
     "lang",
     "template",

@@ -1,4 +1,4 @@
-name: deploy-to-prod
+name: deploy-to-staging
 
 on: workflow_dispatch
 
@@ -40,10 +40,10 @@ jobs:
             - name: Deploy
               uses: SamKirkland/FTP-Deploy-Action@4.3.2
               with:
-                  server: ${{ secrets.PROD_FTP_HOST }}
-                  server-dir: ${{ secrets.PROD_FTP_PATH }}
-                  username: ${{ secrets.PROD_FTP_NAME }}
-                  password: ${{ secrets.PROD_FTP_PWD }}
+                  server: ${{ secrets.STAG_FTP_HOST }}
+                  server-dir: ${{ secrets.STAG_FTP_PATH }}
+                  username: ${{ secrets.STAG_FTP_NAME }}
+                  password: ${{ secrets.STAG_FTP_PWD }}
                   exclude: |
                       **/.git*
                       **/.git*/**

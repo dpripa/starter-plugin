@@ -29,10 +29,7 @@
     ]
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "normalize.css": "^8.0.1",
-    "bootstrap": "^4.6.2",
-    "popper.js": "^1.16.1"
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -66,8 +63,10 @@
     "webpack-cli": "^3.3.12",
     "webpack-fix-style-only-entries": "~0.4.0",
     "fs": "~0.0.1-security",
+    "path": "~0.12.7",
     "archiver": "~5.0.0",
-    "log-beautify": "~1.2.0"
+    "log-beautify": "~1.2.0",
+    "ftp-deploy": "~2.3.8"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --watch",
@@ -77,8 +76,7 @@
     "fix-style": "npx stylelint --allow-empty-input --fix 'src/**/*.{css,scss}'",
     "fix-script": "npx eslint --fix 'src/**/*.js'",
     "prepare": "husky install",
-    "create-release-zip": "npm run-script .script/create-release-zip.js",
-    "deploy-to-dev": "npm run-script .script/deploy-to-dev.js",
-    "create-pre-release-dir": "npm run-script .script/create-pre-release-dir.js"
+    "create-release-zip": "node .script/create-release-zip.js",
+    "deploy-to-dev": "node .script/deploy-to-dev.js"
   }
 }

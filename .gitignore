@@ -1,5 +1,6 @@
 asset
 node_modules
+release
 vendor
 .DS_Store
 .env
