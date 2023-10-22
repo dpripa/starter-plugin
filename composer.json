@@ -1,5 +1,5 @@
 {
-  "name": "dev/plugin",
+  "name": "wp/plugin",
   "version": "1.0.0",
   "type": "wordpress-plugin",
   "description": "",
