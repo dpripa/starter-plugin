@@ -1,0 +1,14 @@
+{
+  "directories": [
+    "inc",
+    "lang",
+    "template",
+    "vendor"
+  ],
+  "files": [
+    "index.php",
+    "license.txt",
+    "readme.txt",
+    "wpml-config.xml"
+  ]
+}

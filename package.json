@@ -1,5 +1,5 @@
 {
-  "name": "main-plugin",
+  "name": "plugin",
   "version": "1.0.0",
   "description": "",
   "homepage": "https://wp.local",
@@ -64,7 +64,10 @@
     "terser-webpack-plugin": "^2.3.7",
     "webpack": "~4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-fix-style-only-entries": "~0.4.0"
+    "webpack-fix-style-only-entries": "~0.4.0",
+    "fs": "~0.0.1-security",
+    "archiver": "~5.0.0",
+    "log-beautify": "~1.2.0"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --watch",
@@ -73,6 +76,9 @@
     "lint-script": "npx eslint 'src/**/*.js'",
     "fix-style": "npx stylelint --allow-empty-input --fix 'src/**/*.{css,scss}'",
     "fix-script": "npx eslint --fix 'src/**/*.js'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "create-release-zip": "npm run-script .script/create-release-zip.js",
+    "deploy-to-dev": "npm run-script .script/deploy-to-dev.js",
+    "create-pre-release-dir": "npm run-script .script/create-pre-release-dir.js"
   }
 }

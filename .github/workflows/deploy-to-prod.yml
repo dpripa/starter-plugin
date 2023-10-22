@@ -1,0 +1,75 @@
+name: Deploy to test server
+
+on: workflow_dispatch
+
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Validate composer.json and composer.lock
+              run: composer validate --strict
+
+            - name: Cache Composer packages
+              id: composer-cache
+              uses: actions/cache@v3
+              with:
+                path: vendor
+                key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                    ${{ runner.os }}-php-
+
+            -   name: Install Composer dependencies
+                run: composer install --prefer-dist --no-progress
+
+            - name: Use Node.js 12.x
+              uses: actions/setup-node@v3
+              with:
+                node-version: 12.x
+                cache: 'npm'
+                cache-dependency-path: "package-lock.json"
+
+            - name: Install NPM dependencies
+              run: npm install
+
+            - name: Build Front End
+              run: prepare-to-release-action
+
+            - name: Deploy
+              uses: SamKirkland/FTP-Deploy-Action@4.3.2
+              with:
+                server: ${{ secrets.PROD_FTP_HOST }}
+                server-dir: ${{ secrets.PROD_FTP_PATH }}
+                username: ${{ secrets.PROD_FTP_NAME }}
+                password: ${{ secrets.PROD_FTP_PWD }}
+                exclude: |
+                    **/.git*
+                    **/.git*/**
+                    .github/**
+                    .husky/**
+                    .script/**
+                    node_modules/**
+                    src/**
+                    .editorconfig
+                    .env
+                    .env.example
+                    .eslintignore
+                    .eslintrc
+                    .gitignore
+                    .nvmrc
+                    .stylelintignore
+                    .stylelintrc
+                    composer.json
+                    composer.lock
+                    Makefile
+                    package.json
+                    package-lock.json
+                    phpcs.xml
+                    README.md
+                    release.json
+                    webpack.config.js
