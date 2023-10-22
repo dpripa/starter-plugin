@@ -11,12 +11,12 @@ __NOTE:__ the `.env` file must be defined and contain the required parameters (u
 
 ### GitHub Actions
 Before using workflows, you should define `secret` variables in the project repository settings ([docs](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)).
-- For `deploy-to-prod` (Production):
+- For `deploy-to-prod`:
 	- `PROD_FTP_HOST`;
 	- `PROD_FTP_PATH`;
 	- `PROD_FTP_NAME`;
 	- `PROD_FTP_PWD`.
-- For `deploy-to-stag` (Staging):
+- For `deploy-to-stag`:
 	- `STAG_FTP_HOST`;
 	- `STAG_FTP_PATH`;
 	- `STAG_FTP_NAME`;
