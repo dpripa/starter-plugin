@@ -38,7 +38,7 @@ jobs:
               run: npm install
 
             - name: Build Front End
-              run: make prepare-to-release-action
+              run: make prepare-to-release
 
             - name: Deploy
               uses: SamKirkland/FTP-Deploy-Action@4.3.2

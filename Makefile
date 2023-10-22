@@ -19,7 +19,7 @@ fix:
 lint:
 	composer run lint && npm run lint-style && npm run lint-script
 
-prepare-to-release-action:
+prepare-to-release:
 	make lint && npm run build && composer run no-dev
 
 nvm-use:
