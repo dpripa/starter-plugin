@@ -3,9 +3,8 @@ namespace MainPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-class Plugin {
+class Setting {
 	public function __construct() {
-		new Plugin\Notice();
-		new Plugin\Setting();
+		new Setting\General();
 	}
 }

@@ -12,6 +12,9 @@ class Setup {
 
 	public function init(): void {
 		load_plugin_textdomain( KEY, false, Plugin\Fs::get_path( 'lang' ) );
+
+		new Setting();
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 

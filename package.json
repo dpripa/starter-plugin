@@ -26,6 +26,10 @@
     "main": [
       "./script/main.js",
       "./style/main.scss"
+    ],
+    "setting": [
+      "./script/setting.js",
+      "./style/setting.scss"
     ]
   },
   "dependencies": {
