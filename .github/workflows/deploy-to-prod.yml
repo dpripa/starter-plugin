@@ -22,7 +22,7 @@ jobs:
                     ${{ runner.os }}-php-
 
             -   name: Install Composer dependencies
-                run: composer run no-dev
+                run: composer install
 
             - name: Use Node.js 12.x
               uses: actions/setup-node@v3
@@ -34,7 +34,7 @@ jobs:
             - name: Install NPM dependencies
               run: npm install
 
-            - name: Build Front End
+            - name: Prepare to release
               run: make prepare-to-release
 
             - name: Deploy
