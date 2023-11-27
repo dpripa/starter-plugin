@@ -4,7 +4,13 @@ const archiver = require( 'archiver' );
 const log = require( 'log-beautify' );
 const release = require( '../package.json' ).release;
 const name = path.basename(path.dirname(__dirname));
-const output = fs.createWriteStream( '../release/' + name + '.zip' );
+const destination = './release';
+
+if ( ! fs.existsSync( destination ) ) {
+	fs.mkdirSync( destination, { recursive: true } );
+}
+
+const output = fs.createWriteStream( destination + '/' + name + '.zip' );
 const archive = archiver( 'zip', {});
 
 output.on( 'close', function() {
