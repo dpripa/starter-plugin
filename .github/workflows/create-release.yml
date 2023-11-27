@@ -34,11 +34,8 @@ jobs:
             - name: Install NPM dependencies
               run: npm install
 
-            - name: Prepare to release
-              run: make prepare-to-release
-
             - name: Create release zip
-              run: make create-release-zip
+              run: make lint && make build-src && composer run no-dev && npm run create-release-zip
 
             - name: Get the version
               id: get_version
