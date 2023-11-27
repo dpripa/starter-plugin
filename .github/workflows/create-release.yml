@@ -12,7 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: Cache Composer packages
+            - name: Cache Composer Packages
               id: composer-cache
               uses: actions/cache@v3
               with:
@@ -21,7 +21,7 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-php-
 
-            -   name: Install Composer dependencies
+            -   name: Install Composer Dependencies
                 run: composer install
 
             - name: Use Node.js 12.x
@@ -31,33 +31,29 @@ jobs:
                   cache: 'npm'
                   cache-dependency-path: "package-lock.json"
 
-            - name: Install NPM dependencies
+            - name: Install NPM Dependencies
               run: npm install
 
-            - name: Create release zip
+            - name: Create Release Zip
               run: make lint && npm run build && composer run no-dev && npm run create-release-zip
 
-            - name: Get the version
-              id: get_version
-              run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-
-            - name: Create Release
-              id: create_release
+            - name: Create Release Tag
+              id: create_release_tag
               uses: actions/create-release@v1
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                tag_name: ${{ steps.get_version.outputs.VERSION }}
-                release_name: ${{ steps.get_version.outputs.VERSION }}
+                tag_name: ${{ env.VERSION }}
+                release_name: ${{ env.VERSION }}
                 draft: false
                 prerelease: false
 
-            - name: Upload release asset
+            - name: Upload Release Asset
               uses: actions/upload-release-asset@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
                   asset_path: ./release/${{ github.repository }}.zip
-                  asset_name: ${{ github.repository }}-${{ steps.get_version.outputs.VERSION }}.zip
+                  asset_name: ${{ github.repository }}-${{ env.VERSION }}.zip
                   asset_content_type: application/zip
