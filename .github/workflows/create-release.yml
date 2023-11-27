@@ -48,12 +48,16 @@ jobs:
                 draft: false
                 prerelease: false
 
+            - name: Extract Repository Name
+              id: repo_name
+              run: echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
+
             - name: Upload Release Asset
               uses: actions/upload-release-asset@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
-                  asset_path: ./release/${{ github.repository }}.zip
-                  asset_name: ${{ github.repository }}-${{ vars.VERSION }}.zip
+                  asset_path: ./release/${{ env.REPO_NAME }}.zip
+                  asset_name: ${{ env.REPO_NAME }}-${{ vars.VERSION }}.zip
                   asset_content_type: application/zip
