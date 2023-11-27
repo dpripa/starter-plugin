@@ -11,7 +11,7 @@ if ( ! fs.existsSync( destination ) ) {
 }
 
 const output = fs.createWriteStream( destination + '/' + name + '.zip' );
-const archive = archiver( 'zip', {});
+const archive = archiver( 'zip', {} );
 
 output.on( 'close', function() {
 	console.log( '\n' );
