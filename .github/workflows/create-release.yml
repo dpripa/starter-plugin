@@ -43,8 +43,8 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                tag_name: ${{ env.VERSION }}
-                release_name: ${{ env.VERSION }}
+                tag_name: ${{ vars.VERSION }}
+                release_name: ${{ vars.VERSION }}
                 draft: false
                 prerelease: false
 
@@ -55,5 +55,5 @@ jobs:
               with:
                   upload_url: ${{ steps.create_release_tag.outputs.upload_url }}
                   asset_path: ./release/${{ github.repository }}.zip
-                  asset_name: ${{ github.repository }}-${{ env.VERSION }}.zip
+                  asset_name: ${{ github.repository }}-${{ vars.VERSION }}.zip
                   asset_content_type: application/zip
