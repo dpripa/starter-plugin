@@ -28,6 +28,21 @@
       "./style/main.scss"
     ]
   },
+  "release": {
+    "directories": [
+      "asset",
+      "inc",
+      "lang",
+      "template",
+      "vendor"
+    ],
+    "files": [
+      "index.php",
+      "license.txt",
+      "readme.txt",
+      "wpml-config.xml"
+    ]
+  },
   "dependencies": {
     "jquery": "^3.5.1"
   },

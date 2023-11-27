@@ -14,7 +14,7 @@ class Env {
 
 	protected static $root_host;
 
-	protected function __construct() {
+	public function __construct() {
 		$host              = explode( '.', wp_parse_url( Url::get_home(), PHP_URL_HOST ) );
 		static::$root_host = end( $host );
 	}

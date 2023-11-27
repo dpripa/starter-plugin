@@ -3,7 +3,7 @@ namespace MainPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-class Setup {
+final class Setup {
 	public function __construct() {
 		new Plugin();
 

@@ -2,7 +2,7 @@ const dotenv = require( 'dotenv' ).config();
 const FtpDeploy = require( 'ftp-deploy' );
 const path = require( 'path' );
 const ftp = new FtpDeploy();
-const release = require( '../release.json' );
+const release = require( '../package.json' ).release;
 
 ftp.deploy( {
 		host: process.env.FTP_DEV_HOST,
