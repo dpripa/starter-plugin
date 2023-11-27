@@ -35,7 +35,7 @@ jobs:
               run: npm install
 
             - name: Create release zip
-              run: make lint && make build-src && composer run no-dev && npm run create-release-zip
+              run: make lint && npm run build && composer run no-dev && npm run create-release-zip
 
             - name: Get the version
               id: get_version
