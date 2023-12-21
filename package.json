@@ -15,7 +15,6 @@
   "keywords": [
     "wordpress"
   ],
-  "node": "12",
   "browserslist": [
     "last 2 versions",
     "android 4",

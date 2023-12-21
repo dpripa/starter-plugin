@@ -21,13 +21,13 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-php-
 
-            -   name: Install Composer Dependencies
-                run: composer install
+            - name: Install Composer Dependencies
+              run: composer install
 
-            - name: Use Node.js 12.x
+            - name: Use Node.js 16.x
               uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
+                  node-version: 16.x
                   cache: 'npm'
                   cache-dependency-path: "package-lock.json"
 
