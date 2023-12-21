@@ -37,8 +37,12 @@ jobs:
             - name: Prepare to Release
               run: make lint && npm run build && composer run no-dev && npm run create-release-zip
 
+            - name: Extract Repository Name
+              id: repo-name
+              run: echo "::set-output name=REPO_NAME::$(basename ${{ github.repository }})"
+
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
                   name: pre-release-zip
-                  path: ./release/${{ github.repository }}.zip
+                  path: ./release/${{ steps.repo-name.outputs.REPO_NAME }}.zip
