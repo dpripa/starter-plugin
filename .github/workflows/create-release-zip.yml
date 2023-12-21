@@ -39,10 +39,10 @@ jobs:
 
             - name: Extract Repository Name
               id: repo-name
-              run: echo "::set-output name=REPO_NAME::$(basename ${{ github.repository }})"
+              run: echo "REPO_NAME=$(basename ${{ github.repository }})" >> $GITHUB_ENV
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
-                  name: ${{ steps.repo-name.outputs.REPO_NAME }}
-                  path: ./release/${{ steps.repo-name.outputs.REPO_NAME }}.zip
+                  name: ${{ env.REPO_NAME }}
+                  path: ./release/${{ env.REPO_NAME }}.zip
