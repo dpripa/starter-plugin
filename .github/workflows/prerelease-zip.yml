@@ -1,0 +1,44 @@
+name: Prerelease Zip
+
+on: workflow_dispatch
+
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Cache Composer Packages
+              id: composer-cache
+              uses: actions/cache@v3
+              with:
+                  path: vendor
+                  key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-php-
+
+            -   name: Install Composer Dependencies
+                run: composer install
+
+            - name: Use Node.js 12.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 12.x
+                  cache: 'npm'
+                  cache-dependency-path: "package-lock.json"
+
+            - name: Install NPM Dependencies
+              run: npm install
+
+            - name: Prepare to Release
+              run: make lint && npm run build && composer run no-dev && npm run create-release-zip
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: pre-release-zip
+                  path: ./release/${{ github.repository }}.zip

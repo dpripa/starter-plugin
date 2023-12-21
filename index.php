@@ -10,8 +10,7 @@
  * Requires PHP: 7.2.0
  * Requires at least: 5.0.0
  */
-
-namespace MainPlugin;
+namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 

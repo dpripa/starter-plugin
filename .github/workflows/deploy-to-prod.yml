@@ -45,8 +45,8 @@ jobs:
                   username: ${{ secrets.PROD_FTP_NAME }}
                   password: ${{ secrets.PROD_FTP_PWD }}
                   exclude: |
-                      **/.git*
-                      **/.git*/**
+                      **/.git
+                      **/.git/**
                       .github/**
                       .husky/**
                       .script/**

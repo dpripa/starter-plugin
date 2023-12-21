@@ -45,8 +45,8 @@ jobs:
                   username: ${{ secrets.STAG_FTP_NAME }}
                   password: ${{ secrets.STAG_FTP_PWD }}
                   exclude: |
-                      **/.git*
-                      **/.git*/**
+                      **/.git
+                      **/.git/**
                       .github/**
                       .husky/**
                       .script/**
