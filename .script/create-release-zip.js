@@ -31,12 +31,12 @@ archive.pipe( output );
 
 let directories = release.directories;
 for ( let i = 0; i < directories.length; i++ ) {
-	archive.directory( '../' + directories[i], name + '/' + directories[i], null );
+	archive.directory( directories[i], name + '/' + directories[i], null );
 }
 
 let files = release.files;
 for ( let i = 0; i < files.length; i++ ) {
-	archive.file( '../' + files[i], { name: name + '/' + files[i] });
+	archive.file( files[i], { name: name + '/' + files[i] });
 }
 
 archive.finalize();

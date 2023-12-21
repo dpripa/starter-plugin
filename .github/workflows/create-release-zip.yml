@@ -1,4 +1,4 @@
-name: Prerelease Zip
+name: Create Release Zip
 
 on: workflow_dispatch
 
@@ -44,5 +44,5 @@ jobs:
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
-                  name: pre-release-zip
+                  name: release-zip
                   path: ./release/${{ steps.repo-name.outputs.REPO_NAME }}.zip
