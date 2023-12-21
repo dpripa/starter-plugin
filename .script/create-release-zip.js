@@ -6,6 +6,10 @@ const release = require( '../package.json' ).release;
 const name = path.basename(path.dirname(__dirname));
 const destination = './release';
 
+console.log('---------------------------------------');
+console.log(release);
+console.log('---------------------------------------');
+
 if ( ! fs.existsSync( destination ) ) {
 	fs.mkdirSync( destination, { recursive: true } );
 }
