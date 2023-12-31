@@ -15,7 +15,7 @@ const archive = archiver( 'zip', {} );
 
 output.on( 'close', function() {
 	console.log( '\n' );
-	log.success_( '"' + name + '.zip" saved to the "./release" folder.' );
+	log.success_( '"' + name + '.zip" saved to the "'+ destination + '" folder.' );
 	console.log( '\n' )
 });
 

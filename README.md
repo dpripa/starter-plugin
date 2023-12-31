@@ -22,5 +22,7 @@ Before using workflows, you should define `secret` variables in the project repo
 	- `STAG_FTP_NAME`;
 	- `STAG_FTP_PWD`.
 
+`create-release-zip` doesn't require additional variables and after execution will output a zip archive as [an artifact](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts).
+
 ### release.json
 This file contains a list of directories and files that should be included in the release, it's used when executing the `create-release-zip` and `deploy-to-dev` commands.
