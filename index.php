@@ -14,7 +14,7 @@ namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-const KEY       = 'main_plugin';
+const KEY       = 'my_plugin';
 const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';

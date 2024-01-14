@@ -3,7 +3,7 @@ namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-final class Setup {
+class Setup {
 	public function __construct() {
 		new Plugin();
 
@@ -11,6 +11,10 @@ final class Setup {
 	}
 
 	public function init(): void {
+		if ( Plugin\Dep::validate( $this->get_deps() ) ) {
+			return;
+		}
+
 		load_plugin_textdomain( KEY, false, Plugin\Fs::get_path( 'lang' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
@@ -18,5 +22,9 @@ final class Setup {
 	public function enqueue_assets(): void {
 		Plugin\Asset::enqueue_style( 'main' );
 		Plugin\Asset::enqueue_script( 'main' );
+	}
+
+	protected function get_deps(): array {
+		return array();
 	}
 }

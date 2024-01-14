@@ -1,4 +1,4 @@
-=== Main Plugin ===
+=== My Plugin ===
 
 Stable tag: 1.0.0
 Contributors: developer
