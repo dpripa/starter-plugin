@@ -19,7 +19,7 @@ fix:
 lint:
 	composer run lint && npm run lint-style && npm run lint-script
 
-# NOTE. The following commands are for internal system use only, so you don't need to use them manually:
+# NOTE. The following commands are part of the automation, so you don't need to use them manually:
 
 prepare-to-release:
 	make lint && npm run build && composer run no-dev
