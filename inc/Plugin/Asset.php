@@ -72,13 +72,6 @@ class Asset {
 		wp_enqueue_style( static::get_key( $name ), $url, false, null ); // phpcs:ignore
 	}
 
-	public static function enqueue_args( string $name, array $args ): void {
-		$key = static::get_key( $name );
-
-		wp_register_script( $key, null, [], null ); // phpcs:ignore
-		wp_localize_script( $key, $key, $args );
-	}
-
 	protected static function get_url( string $rel ): string {
 		return Fs::get_url( $rel );
 	}
