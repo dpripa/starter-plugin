@@ -30,4 +30,35 @@ class Fs {
 
 		return $rel ? "$path{$rel}" : rtrim( $path, '/\\' );
 	}
+
+	public static function write( string $path, string $content ): string {
+		$output = error_log( '/*test*/', '3', $path ); // phpcs:ignore
+
+		if ( $output ) {
+			unlink( $path );
+			error_log( $content, '3', $path ); // phpcs:ignore
+			chmod( $path, 0600 );
+		}
+
+		return $output;
+	}
+
+	public static function read( string $path ): string {
+		if ( file_exists( $path ) ) {
+			$file     = fopen( $path , 'r' ); // phpcs:ignore
+			$response = '';
+
+			fseek( $file, -1048576, SEEK_END );
+
+			while ( ! feof( $file ) ) {
+				$response .= fgets( $file );
+			}
+
+			fclose( $file ); // phpcs:ignore
+
+			return $response;
+		}
+
+		return '';
+	}
 }
