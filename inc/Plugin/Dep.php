@@ -7,8 +7,6 @@ use const MyPlugin\ROOT_FILE;
 defined( 'ABSPATH' ) || exit;
 
 class Dep {
-	protected const ROOT_FILE = ROOT_FILE;
-
 	public static function validate( array $deps ): bool {
 		if ( empty( $deps ) ) {
 			return false;
@@ -18,7 +16,7 @@ class Dep {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$plugin_data  = \get_plugin_data( static::ROOT_FILE );
+		$plugin_data  = \get_plugin_data( ROOT_FILE );
 		$plugin_name  = '"' . $plugin_data['Name'] . '"';
 		$missing_deps = '';
 

@@ -29,13 +29,13 @@ class Fs {
 		return $rel ? "$path{$rel}" : rtrim( $path, '/\\' );
 	}
 
-	public static function write( string $path, string $content ): string {
+	public static function write( string $path, string $content, int $permissions = 0600 ): string {
 		$output = error_log( '/*test*/', '3', $path ); // phpcs:ignore
 
 		if ( $output ) {
 			unlink( $path );
 			error_log( $content, '3', $path ); // phpcs:ignore
-			chmod( $path, 0600 );
+			chmod( $path, $permissions );
 		}
 
 		return $output;
