@@ -7,7 +7,6 @@ use const MyPlugin\ROOT_FILE;
 defined( 'ABSPATH' ) || exit;
 
 class Dep {
-	protected const KEY       = KEY;
 	protected const ROOT_FILE = ROOT_FILE;
 
 	public static function validate( array $deps ): bool {
@@ -34,8 +33,8 @@ class Dep {
 		}
 
 		$message = 1 < count( $deps ) ?
-			__( '%1$s requires the following plugins: %2$s.', static::KEY ) :
-			__( '%1$s requires the %2$s plugin.', static::KEY );
+			__( '%1$s requires the following plugins: %2$s.', KEY ) :
+			__( '%1$s requires the %2$s plugin.', KEY );
 		$message = sprintf( $message, $plugin_name, $missing_deps );
 
 		Notice::render( $message, 'error' );

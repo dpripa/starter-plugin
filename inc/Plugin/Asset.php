@@ -6,7 +6,6 @@ use const MyPlugin\KEY;
 defined( 'ABSPATH' ) || exit;
 
 class Asset {
-	protected const KEY        = KEY;
 	protected const ASSET_DIR  = 'asset';
 	protected const SCRIPT_DIR = 'script';
 	protected const STYLE_DIR  = 'style';
@@ -31,7 +30,7 @@ class Asset {
 	}
 
 	public static function enqueue_inline_script( string $parent_name, string $js_code, string $position = 'after' ): void {
-		wp_add_inline_script( static::KEY . "_$parent_name", $js_code, $position );
+		wp_add_inline_script( KEY . "_$parent_name", $js_code, $position );
 	}
 
 	public static function enqueue_style( string $name, array $deps = array(), /* ?string|?array */ $addition = null ): void { // phpcs:ignore
@@ -54,7 +53,7 @@ class Asset {
 			$css_vars = ':root{';
 
 			foreach ( $addition as $var_name => $var_val ) {
-				$css_vars .= '--' . str_replace( '_', '-', static::KEY . "_$var_name" ) . ':' . $var_val . ';';
+				$css_vars .= '--' . str_replace( '_', '-', KEY . "_$var_name" ) . ':' . $var_val . ';';
 			}
 
 			wp_add_inline_style( $key, "$css_vars}" );
@@ -81,6 +80,6 @@ class Asset {
 	}
 
 	protected static function get_key( string $name ): string {
-		return static::KEY . '_' . str_replace( '-', '_', $name );
+		return KEY . '_' . str_replace( '-', '_', $name );
 	}
 }

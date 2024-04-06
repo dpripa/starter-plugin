@@ -6,10 +6,8 @@ use const MyPlugin\ROOT_FILE;
 defined( 'ABSPATH' ) || exit;
 
 class Fs {
-	protected const ROOT_FILE = ROOT_FILE;
-
 	public static function get_url( string $rel = '', bool $stamp = false ): string {
-		$url = plugin_dir_url( static::ROOT_FILE );
+		$url = plugin_dir_url( ROOT_FILE );
 		$url = $rel ? ( $url . $rel ) : rtrim( $url, '/\\' );
 
 		if ( $stamp ) {
@@ -26,7 +24,7 @@ class Fs {
 	}
 
 	public static function get_path( string $rel = '' ): string {
-		$path = plugin_dir_path( static::ROOT_FILE );
+		$path = plugin_dir_path( ROOT_FILE );
 
 		return $rel ? "$path{$rel}" : rtrim( $path, '/\\' );
 	}
