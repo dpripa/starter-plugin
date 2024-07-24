@@ -24,5 +24,9 @@ Before using workflows, you should define `secret` variables in the project repo
 
 `create-release-zip` doesn't require additional variables and after execution will output a zip archive as [an artifact](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts).
 
-### release.json
-This file contains a list of directories and files that should be included in the release, it's used when executing the `create-release-zip` and `deploy-to-dev` commands.
+### Files for release
+#### package.json
+In this file you can find `"release":{}` which contains a list of directories and files that should be included in the release, it's used when executing the `deploy-to-dev` in the local environment and `create-release-zip` in all environments.
+
+#### .github/workflows
+In `deploy-to-prod.yml` and `deploy-to-stag.yml` files under `name: Deploy` you can find `exclude` which contains a list of directories and files to ignore during the deployment process.
