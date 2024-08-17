@@ -12,7 +12,7 @@ ftp.deploy( {
 		localRoot: path.dirname(__dirname),
 		remoteRoot: process.env.FTP_DEV_DIR,
 		include: release.directories.map(
-			( dir ) => dir + '/*'
+			( dir ) => dir + '/**'
 		).concat(release.files),
 		exclude: [ 'node_modules/**', 'src/**' ],
 		deleteRemote: false,
