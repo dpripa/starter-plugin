@@ -1,9 +1,9 @@
 const fs = require( 'fs' );
-const path = require('path');
+const path = require( 'path' );
 const archiver = require( 'archiver' );
 const log = require( 'log-beautify' );
 const release = require( '../package.json' ).release;
-const name = path.basename(path.dirname(__dirname));
+const name = path.basename( path.dirname( __dirname ) );
 const destination = './release';
 
 if ( ! fs.existsSync( destination ) ) {
@@ -15,7 +15,7 @@ const archive = archiver( 'zip', {} );
 
 output.on( 'close', function() {
 	console.log( '\n' );
-	log.success_( '"' + name + '.zip" saved to the "'+ destination + '" folder.' );
+	log.success_( '"' + name + '.zip" saved to the "' + destination + '" folder.' );
 	console.log( '\n' )
 });
 

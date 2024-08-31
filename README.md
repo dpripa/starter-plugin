@@ -1,12 +1,12 @@
 # WordPress Development Environment
-Welcome to the efficient environment for WordPress development.
+Welcome to the complete environment for WordPress development.
 
 ### Requirements
 - `PHP >=7.2.0`
 - `NVM`
 
 ### CLI
-You can find all available commands in the `Makefile`. Have a nice initialization!\
+You can find all available commands in the `Makefile`. \
 __NOTE:__ the `.env` file must be defined and contain the required parameters (use the `.env.example` file as reference).
 
 ### GitHub Actions
@@ -16,11 +16,11 @@ Before using workflows, you should define `secret` variables in the project repo
 	- `PROD_FTP_PATH`;
 	- `PROD_FTP_NAME`;
 	- `PROD_FTP_PWD`.
-- For `deploy-to-stag`:
-	- `STAG_FTP_HOST`;
-	- `STAG_FTP_PATH`;
-	- `STAG_FTP_NAME`;
-	- `STAG_FTP_PWD`.
+- For `deploy-to-dev`:
+	- `DEV_FTP_HOST`;
+	- `DEV_FTP_PATH`;
+	- `DEV_FTP_NAME`;
+	- `DEV_FTP_PWD`.
 
 `create-release-zip` doesn't require additional variables and after execution will output a zip archive as [an artifact](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts).
 
@@ -29,4 +29,4 @@ Before using workflows, you should define `secret` variables in the project repo
 In this file you can find `"release":{}` which contains a list of directories and files that should be included in the release, it's used when executing the `deploy-to-dev` in the local environment and `create-release-zip` in all environments.
 
 #### .github/workflows
-In `deploy-to-prod.yml` and `deploy-to-stag.yml` files under `name: Deploy` you can find `exclude` which contains a list of directories and files to ignore during the deployment process.
+In `deploy-to-prod.yml` and `deploy-to-dev.yml` files under `name: Deploy` you can find `exclude` which contains a list of directories and files to ignore during the deployment process.

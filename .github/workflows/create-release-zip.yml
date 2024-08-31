@@ -1,4 +1,4 @@
-name: Create Release Zip
+name: create-release-zip
 
 on: workflow_dispatch
 

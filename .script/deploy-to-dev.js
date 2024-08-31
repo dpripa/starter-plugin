@@ -5,12 +5,12 @@ const ftp = new FtpDeploy();
 const release = require( '../package.json' ).release;
 
 ftp.deploy( {
-		host: process.env.FTP_DEV_HOST,
+		host: process.env.DEV_FTP_HOST,
 		port: 21,
-		user: process.env.FTP_DEV_NAME,
-		password: process.env.FTP_DEV_PWD,
+		user: process.env.DEV_FTP_NAME,
+		password: process.env.DEV_FTP_PWD,
 		localRoot: path.dirname(__dirname),
-		remoteRoot: process.env.FTP_DEV_DIR,
+		remoteRoot: process.env.DEV_FTP_DIR,
 		include: release.directories.map(
 			( dir ) => dir + '/**'
 		).concat(release.files),
