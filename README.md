@@ -6,7 +6,7 @@ Welcome to the complete environment for WordPress development.
 - `NVM`
 
 ### CLI
-You can find all available commands in the `Makefile`. \
+You can find all available commands in the `Makefile`.\
 __NOTE:__ the `.env` file must be defined and contain the required parameters (use the `.env.example` file as reference).
 
 ### GitHub Actions
