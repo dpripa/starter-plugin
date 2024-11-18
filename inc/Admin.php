@@ -3,9 +3,8 @@ namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-class Plugin {
+class Admin {
 	public function __construct() {
-		new Plugin\Env();
 		new Plugin\Notice();
 	}
 }

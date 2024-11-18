@@ -1,6 +1,7 @@
 <?php
-namespace MyPlugin\Plugin;
+namespace MyPlugin;
 
+use MyPlugin\Url;
 use const MyPlugin\KEY;
 
 defined( 'ABSPATH' ) || exit;

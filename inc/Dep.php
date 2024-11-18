@@ -1,6 +1,7 @@
 <?php
-namespace MyPlugin\Plugin;
+namespace MyPlugin;
 
+use MyPlugin\Plugin\Notice;
 use const MyPlugin\KEY;
 use const MyPlugin\ROOT_FILE;
 

@@ -1,5 +1,5 @@
 <?php
-namespace MyPlugin\Plugin;
+namespace MyPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
