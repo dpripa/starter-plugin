@@ -1,10 +1,6 @@
 <?php
 namespace MyPlugin;
 
-use MyPlugin\Plugin\Notice;
-use const MyPlugin\KEY;
-use const MyPlugin\ROOT_FILE;
-
 defined( 'ABSPATH' ) || exit;
 
 class Dep {
@@ -36,7 +32,7 @@ class Dep {
 			__( '%1$s requires the %2$s plugin.', KEY );
 		$message = sprintf( $message, $plugin_name, $missing_deps );
 
-		Notice::render( $message, 'error' );
+		Admin\Notice::render( $message, 'error' );
 
 		return true;
 	}

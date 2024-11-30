@@ -1,6 +1,8 @@
 <?php
 namespace MyPlugin;
 
+use Exception;
+
 defined( 'ABSPATH' ) || exit;
 
 class Setup {
@@ -9,6 +11,7 @@ class Setup {
 		new Admin();
 
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	public function init(): void {
@@ -16,10 +19,16 @@ class Setup {
 			return;
 		}
 
-		load_plugin_textdomain( KEY, false, \MyPlugin\Fs::get_path( 'lang' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 
+	public function load_textdomain(): void {
+		load_plugin_textdomain( KEY, false, Fs::get_path( 'lang' ) );
+	}
+
+	/**
+	 * @throws Exception
+	 */
 	public function enqueue_assets(): void {
 		Asset::enqueue_style( 'main' );
 		Asset::enqueue_script( 'main' );

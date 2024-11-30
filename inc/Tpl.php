@@ -1,8 +1,6 @@
 <?php
 namespace MyPlugin;
 
-use MyPlugin\Fs;
-
 defined( 'ABSPATH' ) || exit;
 
 class Tpl {

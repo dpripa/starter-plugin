@@ -1,5 +1,5 @@
 <?php
-namespace MyPlugin\Plugin;
+namespace MyPlugin\Admin;
 
 use const MyPlugin\KEY;
 
