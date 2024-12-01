@@ -1,6 +1,8 @@
 <?php
 namespace MyPlugin;
 
+use function get_plugin_data;
+
 defined( 'ABSPATH' ) || exit;
 
 class Dep {
@@ -13,7 +15,7 @@ class Dep {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$plugin_data  = \get_plugin_data( ROOT_FILE );
+		$plugin_data  = get_plugin_data( ROOT_FILE );
 		$plugin_name  = '"' . $plugin_data['Name'] . '"';
 		$missing_deps = '';
 

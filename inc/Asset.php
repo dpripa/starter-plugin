@@ -11,7 +11,10 @@ class Asset {
 	protected const STYLE_DIR  = 'style';
 	protected const POSTFIX    = '.min';
 
-	public static function enqueue_script( string $name, array $deps = array(), array $args = array(), bool $in_footer = true ): void {
+	/**
+	 * @throws Exception
+	 */
+	public static function enqueue_script( string $name, array $deps = array(), array $args = array(), bool $in_footer = true, ?string $args_object_name = null ): void {
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.js';
 		$rel      = static::ASSET_DIR . '/' . static::SCRIPT_DIR . '/' . $filename;
@@ -25,7 +28,7 @@ class Asset {
 		wp_enqueue_script( $key, $url, $deps, filemtime( $path ), $in_footer );
 
 		if ( $args ) {
-			wp_localize_script( $key, $key, $args );
+			wp_localize_script( $key, $args_object_name ?: $key, $args );
 		}
 	}
 
@@ -33,6 +36,9 @@ class Asset {
 		wp_add_inline_script( KEY . "_$parent_name", $js_code, $position );
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	public static function enqueue_style( string $name, array $deps = array(), /* ?string|?array */ $addition = null ): void { // phpcs:ignore
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.css';
