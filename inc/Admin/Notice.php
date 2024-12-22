@@ -25,34 +25,37 @@ class Notice {
 			}
 		}
 
-		static::update_transients( array() );
+		delete_option( static::$key );
 	}
 
 	protected static function get_transients(): array {
 		return get_option( static::$key, array() );
 	}
 
-	protected static function update_transients( array $notices ): void {
-		update_option( static::$key, $notices );
-	}
-
 	public static function add_transient( string $message, string $level = 'warning' ): void {
 		$notices             = static::get_transients();
 		$notices[ $level ][] = $message;
 
-		static::update_transients( $notices );
+		update_option( static::$key, $notices );
 	}
 
-	public static function render( string $message, string $level = 'warning' ): void {
+	public static function render( string $message, string $level = 'warning', bool $is_dismissible = true ): void {
 		add_action(
 			'admin_notices',
-			function () use ( $message, $level ): void {
+			function () use ( $message, $level, $is_dismissible ): void {
 				?>
-				<div class="notice notice-<?php echo esc_attr( $level ); ?> is-dismissible" style="padding-top: 10px; padding-bottom: 10px;">
+				<div
+					class="notice notice-<?php echo esc_attr( $level ) . ( $is_dismissible ? ' is-dismissible' : '' ); ?>"
+					style="padding-top: 10px; padding-bottom: 10px;"
+				>
 					<?php echo wp_kses_post( $message ); ?>
 				</div>
 				<?php
 			}
 		);
+	}
+
+	public static function reset(): void {
+		delete_option( static::$key );
 	}
 }

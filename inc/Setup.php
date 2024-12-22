@@ -7,6 +7,8 @@ defined( 'ABSPATH' ) || exit;
 
 class Setup {
 	public function __construct() {
+		new Activation();
+		new Deactivation();
 		new Env();
 		new Admin();
 
