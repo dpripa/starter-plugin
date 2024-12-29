@@ -10,6 +10,7 @@ class Env {
 		'loc',
 		'development',
 		'dev',
+		'mamp',
 	);
 
 	protected $dev_envs = array(
