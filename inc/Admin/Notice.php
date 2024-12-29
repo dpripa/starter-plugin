@@ -6,7 +6,7 @@ use const MyPlugin\KEY;
 defined( 'ABSPATH' ) || exit;
 
 class Notice {
-	protected static $key = KEY . '_admin_transient_notices';
+	protected const KEY = KEY . '_admin_transient_notices';
 
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'render_transients' ) );
@@ -25,18 +25,18 @@ class Notice {
 			}
 		}
 
-		delete_option( static::$key );
+		delete_option( static::KEY );
 	}
 
 	protected static function get_transients(): array {
-		return get_option( static::$key, array() );
+		return get_option( static::KEY, array() );
 	}
 
 	public static function add_transient( string $message, string $level = 'warning' ): void {
 		$notices             = static::get_transients();
 		$notices[ $level ][] = $message;
 
-		update_option( static::$key, $notices );
+		update_option( static::KEY, $notices );
 	}
 
 	public static function render( string $message, string $level = 'warning', bool $is_dismissible = true ): void {
@@ -56,6 +56,6 @@ class Notice {
 	}
 
 	public static function reset(): void {
-		delete_option( static::$key );
+		delete_option( static::KEY );
 	}
 }
