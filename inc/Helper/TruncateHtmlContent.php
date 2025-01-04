@@ -1,59 +1,9 @@
 <?php
-namespace MyPlugin;
+namespace MyPlugin\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
-class Helper {
-	public static function generate_random( int $length = 16, string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ): string {
-		$pieces = array();
-		$max    = mb_strlen( $keyspace, '8bit' ) - 1;
-
-		for ( $i = 0; $i < $length; ++ $i ) {
-			$pieces[] = $keyspace[ random_int( 0, $max ) ];
-		}
-
-		return implode( '', $pieces );
-	}
-
-	public static function convert_iso8601_to_min( string $iso_duration ): int {
-		preg_match( '/PT(\d+H)?(\d+M)?(\d+S)?/', $iso_duration, $matches );
-		$hours   = isset( $matches[1] ) ? intval( $matches[1] ) : 0;
-		$minutes = isset( $matches[2] ) ? intval( $matches[2] ) : 0;
-		$seconds = isset( $matches[3] ) ? intval( $matches[3] ) : 0;
-
-		return $hours * 60 + $minutes + $seconds / 60;
-	}
-
-	public static function dash_to_camelcase( string $string, bool $ucfirst = false ): string {
-		$words    = explode( '-', $string );
-		$words    = array_map( 'ucfirst', $words );
-		$words[0] = $ucfirst ? ucfirst( $words[0] ) : lcfirst( $words[0] );
-
-		return implode( '', $words );
-	}
-
-	public static function map_associative( callable $callback, array $array ): array {
-		$result = array();
-
-		foreach ( $array as $key => $val ) {
-			$result[ $key ] = $callback( $key, $val );
-		}
-
-		return $result;
-	}
-
-	public static function insert_to_position( array $array_for_insert, array $target_array, int $position ): array {
-		if ( empty( $target_array ) ) {
-			return $array_for_insert;
-		}
-
-		return array_merge(
-			array_slice( $target_array, 0, $position ),
-			$array_for_insert,
-			array_slice( $target_array, $position )
-		);
-	}
-
+trait TruncateHtmlContent {
 	public static function truncate_html_content( string $string, int $length = 100, array $args = array() ): string {
 		$args = wp_parse_args(
 			$args,
