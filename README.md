@@ -1,5 +1,4 @@
 # WordPress Development Environment
-Welcome to the complete environment for WordPress development.
 
 ### Requirements
 - `PHP >=7.2.0`
