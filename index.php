@@ -4,10 +4,10 @@
  * Plugin URI: https://wordpress.org
  * Description: The WordPress Plugin
  * Version: 1.0.0
- * Text Domain: my_plugin
+ * Text Domain: my-plugin
  * Author: Developer
  * Author URI: https://wordpress.org
- * Requires PHP: 7.2.0
+ * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
 namespace MyPlugin;

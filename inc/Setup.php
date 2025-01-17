@@ -17,7 +17,7 @@ class Setup {
 	}
 
 	public function init(): void {
-		if ( Dep::validate( $this->get_deps() ) ) {
+		if ( Requirement::validate() ) {
 			return;
 		}
 
@@ -25,7 +25,7 @@ class Setup {
 	}
 
 	public function load_textdomain(): void {
-		load_plugin_textdomain( KEY, false, Fs::get_path( 'lang' ) );
+		load_plugin_textdomain( 'my-plugin', false, Fs::get_path( 'lang' ) );
 	}
 
 	/**
@@ -34,9 +34,5 @@ class Setup {
 	public function enqueue_assets(): void {
 		Asset::enqueue_style( 'main' );
 		Asset::enqueue_script( 'main' );
-	}
-
-	protected function get_deps(): array {
-		return array();
 	}
 }
