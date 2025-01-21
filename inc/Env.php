@@ -4,7 +4,7 @@ namespace MyPlugin;
 defined( 'ABSPATH' ) || exit;
 
 class Env {
-	protected $dev_hosts = array(
+	protected array $dev_hosts = array(
 		'localhost',
 		'local',
 		'loc',
@@ -13,21 +13,23 @@ class Env {
 		'mamp',
 	);
 
-	protected $dev_envs = array(
+	protected array $dev_envs = array(
 		'development',
 		'local',
 	);
 
-	protected static $is_dev;
+	protected static bool $is_dev;
 
 	public function __construct() {
 		$host           = explode( '.', wp_parse_url( home_url(), PHP_URL_HOST ) );
 		$root_host      = end( $host );
 		static::$is_dev = in_array( $root_host, $this->dev_hosts, true ) ||
-			in_array( wp_get_environment_type(), $this->dev_envs, true );
+			in_array( wp_get_environment_type(), $this->dev_envs, true )
+			|| ( defined( 'WP_ENVIRONMENT' ) && in_array( WP_ENVIRONMENT, $this->dev_envs, true ) );
 	}
 
 	public static function is_dev(): bool {
 		return static::$is_dev;
 	}
 }
+

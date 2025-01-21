@@ -2,7 +2,7 @@
 
 Stable tag: 1.0.0
 Contributors: developer
-Requires PHP: 7.2.0
+Requires PHP: 7.4.0
 Requires at least: 5.0.0
 Tested up to: 5.0.0
 License: GPL-2.0-or-later
