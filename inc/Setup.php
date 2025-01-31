@@ -35,4 +35,20 @@ class Setup {
 		Asset::enqueue_style( 'main' );
 		Asset::enqueue_script( 'main' );
 	}
+
+	public static function get_plugin_name(): ?string {
+		return static::get_plugin_data()['Name'] ?? null;
+	}
+
+	public static function get_version(): ?string {
+		return static::get_plugin_data()['Version'] ?? null;
+	}
+
+	protected static function get_plugin_data(): array {
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		return get_plugin_data( ROOT_FILE );
+	}
 }

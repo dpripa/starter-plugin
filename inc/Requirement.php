@@ -1,8 +1,6 @@
 <?php
 namespace MyPlugin;
 
-use function get_plugin_data;
-
 defined( 'ABSPATH' ) || exit;
 
 class Requirement {
@@ -17,12 +15,7 @@ class Requirement {
 			return false;
 		}
 
-		if ( ! function_exists( 'get_plugin_data' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		}
-
-		$plugin_data          = get_plugin_data( ROOT_FILE );
-		$plugin_name          = '"' . $plugin_data['Name'] . '"';
+		$plugin_name          = '"' . Setup::get_plugin_name() . '"';
 		$missing_requirements = '';
 
 		foreach ( static::$requirements as $classname_or_filename => $title ) {
@@ -36,8 +29,8 @@ class Requirement {
 		}
 
 		$message = 1 < count( static::$requirements ) ?
-			__( '%1$s requires the following plugins: %2$s.', 'wc-jovvie-payments-gateway' ) :
-			__( '%1$s requires the %2$s plugin.', 'wc-jovvie-payments-gateway' );
+			__( '%1$s requires the following plugins: %2$s.', 'my-plugin' ) :
+			__( '%1$s requires the %2$s plugin.', 'my-plugin' );
 		$message = sprintf( $message, $plugin_name, $missing_requirements );
 
 		Admin\Notice::render( $message, 'error' );
