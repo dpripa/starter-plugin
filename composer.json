@@ -17,7 +17,10 @@
   ],
   "config": {
     "platform-check": false,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   },
   "autoload": {
     "psr-4": {
@@ -28,8 +31,7 @@
     "php": ">=7.2.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.12.2",
-    "wp-coding-standards/wpcs": "^2.3.0"
+    "wp-coding-standards/wpcs": "^3.0.0"
   },
   "scripts": {
     "no-dev": "composer install --no-dev",

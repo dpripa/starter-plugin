@@ -4,7 +4,7 @@ namespace MyPlugin\Helper;
 defined( 'ABSPATH' ) || exit;
 
 trait TruncateHtmlContent {
-	public static function truncate_html_content( string $string, int $length = 100, array $args = array() ): string {
+	public static function truncate_html_content( string $str, int $length = 100, array $args = array() ): string {
 		$args = wp_parse_args(
 			$args,
 			array(
@@ -15,15 +15,15 @@ trait TruncateHtmlContent {
 		);
 
 		if ( $args['html'] ) {
-			if ( mb_strlen( preg_replace( '/<.*?>/', '', $string ) ) <= $length ) {
-				return $string;
+			if ( mb_strlen( preg_replace( '/<.*?>/', '', $str ) ) <= $length ) {
+				return $str;
 			}
 
 			$total_length = mb_strlen( wp_strip_all_tags( $args['ending'] ) );
 			$open_tags    = array();
 			$truncate     = '';
 
-			preg_match_all( '/(<\/?([\w+]+)[^>]*>)?([^<>]*)/', $string, $tags, PREG_SET_ORDER );
+			preg_match_all( '/(<\/?([\w+]+)[^>]*>)?([^<>]*)/', $str, $tags, PREG_SET_ORDER );
 
 			foreach ( $tags as $tag ) {
 				if ( ! preg_match( '/img|br|input|hr|area|base|basefont|col|frame|isindex|link|meta|param/s', $tag[2] ) ) {
@@ -49,7 +49,7 @@ trait TruncateHtmlContent {
 					if ( preg_match_all( '/&[0-9a-z]{2,8};|&#[0-9]{1,7};|&#x[0-9a-f]{1,6};/i', $tag[3], $entities, PREG_OFFSET_CAPTURE ) ) {
 						foreach ( $entities[0] as $entity ) {
 							if ( $entity[1] + 1 - $entities_length <= $left ) {
-								$left--;
+								$left--; // phpcs:ignore
 								$entities_length += mb_strlen( $entity[0] );
 
 							} else {
@@ -70,12 +70,12 @@ trait TruncateHtmlContent {
 					break;
 				}
 			}
-		} else {
-			if ( mb_strlen( $string ) <= $length ) {
-				return $string;
+		} else { // phpcs:ignore
+			if ( mb_strlen( $str ) <= $length ) {
+				return $str;
 
 			} else {
-				$truncate = mb_substr( $string, 0, $length - mb_strlen( $args['ending'] ) );
+				$truncate = mb_substr( $str, 0, $length - mb_strlen( $args['ending'] ) );
 			}
 		}
 

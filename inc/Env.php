@@ -32,4 +32,3 @@ class Env {
 		return static::$is_dev;
 	}
 }
-

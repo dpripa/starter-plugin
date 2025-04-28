@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs"/>
+	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/phpcsstandards/phpcsutils,vendor/phpcsstandards/phpcsextra"/>
 	<rule ref="WordPress"/>
 	<config name="minimum_supported_wp_version" value="5.0.0"/>
 
@@ -11,10 +11,6 @@
 	<exclude-pattern>src/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
-
-	<rule ref="WordPress.PHP">
-		<exclude name="WordPress.PHP.DisallowShortTernary"/>
-	</rule>
 
 	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
 		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>

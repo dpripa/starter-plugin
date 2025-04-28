@@ -28,13 +28,13 @@ class Asset {
 		$path     = Fs::get_path( $rel );
 
 		if ( ! file_exists( $path ) ) {
-			throw new Exception( "The \"$path\" script asset file does not exist" );
+			throw new Exception( esc_html( "The \"$path\" script asset file does not exist" ) );
 		}
 
 		wp_enqueue_script( $key, $url, $deps, filemtime( $path ), $in_footer );
 
 		if ( $args ) {
-			wp_localize_script( $key, $args_object_name ?: $key, $args );
+			wp_localize_script( $key, is_string( $args_object_name ) ? $args_object_name : $key, $args );
 		}
 	}
 
@@ -54,7 +54,7 @@ class Asset {
 		$path     = Fs::get_path( $rel );
 
 		if ( ! file_exists( $path ) ) {
-			throw new Exception( "The \"$path\" style asset file does not exist" );
+			throw new Exception( esc_html( "The \"$path\" style asset file does not exist" ) );
 		}
 
 		wp_enqueue_style( $key, $url, $deps, filemtime( $path ) );

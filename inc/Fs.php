@@ -31,9 +31,9 @@ class Fs {
 		$output = error_log( '/*test*/', '3', $path ); // phpcs:ignore
 
 		if ( $output ) {
-			unlink( $path );
+			unlink( $path ); // phpcs:ignore
 			error_log( $content, '3', $path ); // phpcs:ignore
-			chmod( $path, $permissions );
+			chmod( $path, $permissions ); // phpcs:ignore
 		}
 
 		return $output;
