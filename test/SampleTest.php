@@ -16,8 +16,7 @@ class SampleTest extends WP_UnitTestCase {
 	public function test_add_filter_modifies_value(): void {
 		add_filter( 'my_custom_filter', array( $this, 'filter_callback' ) );
 
-		$original = 'Original';
-		$modified = apply_filters( 'my_custom_filter', $original );
+		$modified = apply_filters( 'my_custom_filter', 'Original' );
 
 		$this->assertEquals( 'Modified: Original', $modified );
 	}
