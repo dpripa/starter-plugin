@@ -7,3 +7,5 @@ vendor
 auth.json
 ehthumbs.db
 Thumbs.db
+tmp
+.phpunit.result.cache
