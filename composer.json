@@ -28,7 +28,7 @@
     }
   },
   "require": {
-    "php": ">=7.2.0"
+    "php": ">=7.4.0"
   },
   "require-dev": {
     "wp-coding-standards/wpcs": "^3.1.0",
@@ -39,6 +39,6 @@
     "no-dev": "composer install --no-dev",
     "lint": "phpcs",
     "fix": "phpcbf",
-    "test": "./vendor/bin/phpunit"
+    "tests": "./vendor/bin/phpunit"
   }
 }

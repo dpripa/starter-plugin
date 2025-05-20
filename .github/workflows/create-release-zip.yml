@@ -24,10 +24,10 @@ jobs:
             - name: Install Composer Dependencies
               run: composer install
 
-            - name: Use Node.js 12.x
+            - name: Use Node.js 14.x
               uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
+                  node-version: 14.x
                   cache: 'npm'
                   cache-dependency-path: "package-lock.json"
 
@@ -35,7 +35,7 @@ jobs:
               run: npm install
 
             - name: Prepare to Release
-              run: make lint && npm run build && composer run no-dev && npm run create-release-zip
+              run: make tests && make lint && npm run build && composer run no-dev && npm run create-release-zip
 
             - name: Extract Repository Name
               id: repo-name
