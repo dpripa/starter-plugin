@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: My Plugin
- * Plugin URI: https://wordpress.org
+ * Plugin Name: OmgPlugin
+ * Plugin URI: https://omgpress.com
  * Description: The WordPress Plugin
  * Version: 1.0.0
  * Text Domain: my-plugin
@@ -10,13 +10,13 @@
  * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
-namespace MyPlugin;
+namespace OmgPlugin;
 
 use Exception;
 
 defined( 'ABSPATH' ) || exit;
 
-const KEY       = 'my_plugin';
+const KEY       = 'omgplugin';
 const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';

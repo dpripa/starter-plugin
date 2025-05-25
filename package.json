@@ -1,15 +1,15 @@
 {
-  "name": "plugin",
+  "name": "omgplugin",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://wp.local",
+  "homepage": "https://omgpress.com",
   "license": "GPL-2.0-or-later",
   "private": true,
   "contributors": [
     {
-      "name": "developer",
-      "email": "developer@wp.local",
-      "homepage": "https://wp.local"
+      "name": "OmgPress",
+      "email": "hello@omgpress.com",
+      "homepage": "https://omgpress.com"
     }
   ],
   "keywords": [

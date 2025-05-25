@@ -1,5 +1,5 @@
 <?php
-namespace MyPlugin\Helper;
+namespace OmgPlugin\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
