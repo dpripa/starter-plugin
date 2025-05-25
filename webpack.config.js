@@ -15,14 +15,14 @@ const {default: ImageminPlugin} = require( 'imagemin-webpack-plugin' );
 const ImageminMozjpeg = require( 'imagemin-mozjpeg' );
 
 const paths = {
-	asset: path.resolve( __dirname, './asset' ),
-	src: path.resolve( __dirname, './src' )
+	asset: path.resolve( __dirname, './assets' ),
+	src: path.resolve( __dirname, './sources' )
 };
 const dirs = {
-	script: 'script',
-	style: 'style',
-	image: 'image',
-	font: 'font'
+	script: 'scripts',
+	style: 'styles',
+	image: 'images',
+	font: 'fonts'
 };
 const assetPrefix = '.min';
 const mode = process.env.NODE_ENV;

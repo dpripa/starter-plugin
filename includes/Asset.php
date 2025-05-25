@@ -6,9 +6,9 @@ use Exception;
 defined( 'ABSPATH' ) || exit;
 
 class Asset {
-	protected const ASSET_DIR  = 'asset';
-	protected const SCRIPT_DIR = 'script';
-	protected const STYLE_DIR  = 'style';
+	protected const ASSET_DIR  = 'assets';
+	protected const SCRIPT_DIR = 'scripts';
+	protected const STYLE_DIR  = 'styles';
 	protected const POSTFIX    = '.min';
 
 	/**

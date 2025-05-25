@@ -23,16 +23,16 @@
   ],
   "entry": {
     "main": [
-      "./script/main.js",
-      "./style/main.scss"
+      "./scripts/main.js",
+      "./styles/main.scss"
     ]
   },
   "release": {
     "directories": [
-      "asset",
-      "inc",
-      "lang",
-      "template",
+      "assets",
+      "includes",
+      "languages",
+      "templates",
       "vendor"
     ],
     "files": [
@@ -90,7 +90,7 @@
     "fix-style": "npx stylelint --allow-empty-input --fix 'src/**/*.{css,scss}'",
     "fix-script": "npx eslint --fix 'src/**/*.js'",
     "prepare": "husky install",
-    "create-release-zip": "node .script/create-release-zip.js",
-    "deploy-to-dev": "node .script/deploy-to-dev.js"
+    "create-release-zip": "node .scripts/create-release-zip.js",
+    "deploy-to-dev": "node .scripts/deploy-to-dev.js"
   }
 }

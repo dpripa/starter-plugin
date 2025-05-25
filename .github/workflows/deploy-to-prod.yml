@@ -49,9 +49,10 @@ jobs:
                       **/.git/**
                       .github/**
                       .husky/**
-                      .script/**
+                      .scripts/**
                       node_modules/**
-                      src/**
+                      sources/**
+                      tests/**
                       .editorconfig
                       .env
                       .env.example
@@ -61,12 +62,13 @@ jobs:
                       .nvmrc
                       .stylelintignore
                       .stylelintrc
+                      .travis.yml
                       composer.json
                       composer.lock
                       Makefile
                       package.json
                       package-lock.json
                       phpcs.xml
+                      phunit.xml.dist
                       README.md
-                      release.json
                       webpack.config.js
