@@ -25,7 +25,7 @@ class Setup {
 	}
 
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'my-plugin', false, Fs::get_path( 'lang' ) );
+		load_plugin_textdomain( 'omgplugin', false, Fs::get_path( 'lang' ) );
 	}
 
 	/**

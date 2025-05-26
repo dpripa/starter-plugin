@@ -3,8 +3,8 @@ namespace OmgPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
-class Tpl {
-	protected const DIR = 'templates';
+class View {
+	protected const DIR = 'view';
 
 	public static function get( string $name, array $args = array() ): string { // phpcs:ignore
 		ob_start();

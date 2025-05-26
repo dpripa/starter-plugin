@@ -49,9 +49,9 @@ jobs:
                       **/.git/**
                       .github/**
                       .husky/**
-                      .scripts/**
+                      .script/**
                       node_modules/**
-                      sources/**
+                      src/**
                       tests/**
                       .editorconfig
                       .env

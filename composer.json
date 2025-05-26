@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OmgPlugin\\": "includes/"
+      "OmgPlugin\\": "inc/"
     }
   },
   "require": {

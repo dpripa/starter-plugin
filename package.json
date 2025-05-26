@@ -23,17 +23,17 @@
   ],
   "entry": {
     "main": [
-      "./scripts/main.js",
-      "./styles/main.scss"
+      "./script/main.js",
+      "./style/main.scss"
     ]
   },
   "release": {
     "directories": [
-      "assets",
-      "includes",
-      "languages",
-      "templates",
-      "vendor"
+      "asset",
+      "inc",
+      "lang",
+      "vendor",
+      "view"
     ],
     "files": [
       "index.php",
