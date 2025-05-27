@@ -23,8 +23,8 @@
   ],
   "entry": {
     "main": [
-      "./script/main.js",
-      "./style/main.scss"
+      "./js/main.js",
+      "./css/main.scss"
     ]
   },
   "release": {

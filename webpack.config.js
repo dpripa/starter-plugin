@@ -19,10 +19,10 @@ const paths = {
 	src: path.resolve( __dirname, './src' )
 };
 const dirs = {
-	script: 'script',
-	style: 'style',
-	image: 'image',
-	font: 'font'
+	css: 'css',
+	font: 'font',
+	img: 'img',
+	js: 'js'
 };
 const assetPrefix = '.min';
 const mode = process.env.NODE_ENV;
@@ -85,8 +85,8 @@ if ( isDev ) {
 	BrowserSync(
 		{
 			files: [
-				`${paths.asset}/${dirs.script}/*.js`,
-				`${paths.asset}/${dirs.style}/*.css`,
+				`${paths.asset}/${dirs.js}/*.js`,
+				`${paths.asset}/${dirs.css}/*.css`,
 				path.resolve( __dirname, '../**/*.php' )
 			],
 			port: process.env.BROWSERSYNC_PORT,
@@ -111,7 +111,7 @@ module.exports = {
 	context: paths.src,
 	entry: entry,
 	output: {
-		filename: `${dirs.script}/[name]${assetPrefix}.js`,
+		filename: `${dirs.js}/[name]${assetPrefix}.js`,
 		path: paths.asset
 	},
 	devtool: isDev ? '#cheap-module-source-map' : '',
@@ -229,7 +229,7 @@ module.exports = {
 		),
 		new MiniCssExtract(
 			{
-				filename: `${dirs.style}/[name]${assetPrefix}.css`
+				filename: `${dirs.css}/[name]${assetPrefix}.css`
 			}
 		),
 		new FixStyleOnlyEntries(
@@ -240,8 +240,8 @@ module.exports = {
 		new Copy(
 			[
 				{
-					from: dirs.image,
-					to: `${paths.asset}/${dirs.image}`
+					from: dirs.img,
+					to: `${paths.asset}/${dirs.img}`
 				},
 				{
 					from: dirs.font,

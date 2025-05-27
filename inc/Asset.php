@@ -6,10 +6,10 @@ use Exception;
 defined( 'ABSPATH' ) || exit;
 
 class Asset {
-	protected const ASSET_DIR  = 'asset';
-	protected const SCRIPT_DIR = 'script';
-	protected const STYLE_DIR  = 'style';
-	protected const POSTFIX    = '.min';
+	protected const ASSET_DIR = 'asset';
+	protected const JS_DIR    = 'js';
+	protected const CSS_DIR   = 'css';
+	protected const POSTFIX   = '.min';
 
 	/**
 	 * @throws Exception
@@ -23,7 +23,7 @@ class Asset {
 	): void {
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.js';
-		$rel      = static::ASSET_DIR . '/' . static::SCRIPT_DIR . '/' . $filename;
+		$rel      = static::ASSET_DIR . '/' . static::JS_DIR . '/' . $filename;
 		$url      = Fs::get_url( $rel );
 		$path     = Fs::get_path( $rel );
 
@@ -49,7 +49,7 @@ class Asset {
 	public static function enqueue_style( string $name, array $deps = array(), $addition = null ): void {
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.css';
-		$rel      = static::ASSET_DIR . '/' . static::STYLE_DIR . '/' . $filename;
+		$rel      = static::ASSET_DIR . '/' . static::CSS_DIR . '/' . $filename;
 		$url      = Fs::get_url( $rel );
 		$path     = Fs::get_path( $rel );
 
