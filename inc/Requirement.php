@@ -1,5 +1,5 @@
 <?php
-namespace OmgPlugin;
+namespace StarterPlugin;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,8 +29,8 @@ class Requirement {
 		}
 
 		$message = 1 < count( static::$requirements ) ?
-			__( '%1$s requires the following plugins: %2$s.', 'my-plugin' ) :
-			__( '%1$s requires the %2$s plugin.', 'my-plugin' );
+			__( '%1$s requires the following plugins: %2$s.', 'starter-plugin' ) :
+			__( '%1$s requires the %2$s plugin.', 'starter-plugin' );
 		$message = sprintf( $message, $plugin_name, $missing_requirements );
 
 		Admin\Notice::render( $message, 'error' );

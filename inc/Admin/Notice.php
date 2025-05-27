@@ -1,7 +1,7 @@
 <?php
-namespace OmgPlugin\Admin;
+namespace StarterPlugin\Admin;
 
-use const OmgPlugin\KEY;
+use const StarterPlugin\KEY;
 
 defined( 'ABSPATH' ) || exit;
 

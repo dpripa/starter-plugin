@@ -1,14 +1,14 @@
 {
-  "name": "omgpress/omgplugin",
+  "name": "omgpress/starter-plugin",
   "version": "1.0.0",
   "type": "wordpress-plugin",
-  "description": "",
-  "homepage": "https://omgpress.com",
+  "description": "The WordPress Plugin",
+  "homepage": "https://omgpress.com/starter?type=plugin",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "OmgPress",
-      "email": "hellor@omgpress.com",
+      "email": "hello@omgpress.com",
       "homepage": "https://omgpress.com"
     }
   ],
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OmgPlugin\\": "inc/"
+      "StarterPlugin\\": "inc/"
     }
   },
   "require": {

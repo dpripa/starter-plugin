@@ -1,5 +1,5 @@
 <?php
-namespace OmgPlugin;
+namespace StarterPlugin;
 
 use Exception;
 
@@ -25,7 +25,7 @@ class Setup {
 	}
 
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'omgplugin', false, Fs::get_path( 'lang' ) );
+		load_plugin_textdomain( 'starter-plugin', false, Fs::get_path( 'lang' ) );
 	}
 
 	/**

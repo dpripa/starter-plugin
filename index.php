@@ -1,22 +1,22 @@
 <?php
 /**
- * Plugin Name: OmgPlugin
- * Plugin URI: https://omgpress.com
+ * Plugin Name: Starter Plugin
+ * Plugin URI: https://omgpress.com/starter?type=plugin
  * Description: The WordPress Plugin
  * Version: 1.0.0
- * Text Domain: my-plugin
- * Author: Developer
- * Author URI: https://wordpress.org
+ * Text Domain: starter-plugin
+ * Author: OmgPress
+ * Author URI: https://omgpress.com
  * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
-namespace OmgPlugin;
+namespace StarterPlugin;
 
 use Exception;
 
 defined( 'ABSPATH' ) || exit;
 
-const KEY       = 'omgplugin';
+const KEY       = 'starter_plugin';
 const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';

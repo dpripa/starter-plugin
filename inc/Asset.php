@@ -1,5 +1,5 @@
 <?php
-namespace OmgPlugin;
+namespace StarterPlugin;
 
 use Exception;
 

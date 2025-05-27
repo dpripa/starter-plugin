@@ -1,4 +1,4 @@
-assets
+asset
 node_modules
 release
 vendor
@@ -7,5 +7,5 @@ vendor
 auth.json
 ehthumbs.db
 Thumbs.db
-temp
+tmp
 .phpunit.result.cache
