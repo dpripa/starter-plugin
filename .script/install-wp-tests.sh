@@ -1,16 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-if [ $# -lt 3 ]; then
-	echo "usage: $0 <db-name> <db-user> <db-pass> [db-host] [wp-version] [skip-database-creation]"
-	exit 1
+ENV_FILE="$(dirname "$0")/../.env"
+
+if [ -f "$ENV_FILE" ]; then
+  echo "Loading environment from $ENV_FILE"
+  export $(grep -v '^#' "$ENV_FILE" | xargs)
+else
+  echo ".env file not found"
+  exit 1
 fi
-
-DB_NAME=$1
-DB_USER=$2
-DB_PASS=$3
-DB_HOST=${4-localhost}
-WP_VERSION=${5-latest}
-SKIP_DB_CREATE=${6-false}
 
 TMPDIR="$(pwd)/tmp"
 TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
@@ -25,19 +23,19 @@ download() {
     fi
 }
 
-if [[ $WP_VERSION =~ ^[0-9]+\.[0-9]+\-(beta|RC)[0-9]+$ ]]; then
-	WP_BRANCH=${WP_VERSION%\-*}
+if [[ $TEST_WP_VERSION =~ ^[0-9]+\.[0-9]+\-(beta|RC)[0-9]+$ ]]; then
+	WP_BRANCH=${TEST_WP_VERSION%\-*}
 	WP_TESTS_TAG="branches/$WP_BRANCH"
 
-elif [[ $WP_VERSION =~ ^[0-9]+\.[0-9]+$ ]]; then
-	WP_TESTS_TAG="branches/$WP_VERSION"
-elif [[ $WP_VERSION =~ [0-9]+\.[0-9]+\.[0-9]+ ]]; then
-	if [[ $WP_VERSION =~ [0-9]+\.[0-9]+\.[0] ]]; then
-		WP_TESTS_TAG="tags/${WP_VERSION%??}"
+elif [[ $TEST_WP_VERSION =~ ^[0-9]+\.[0-9]+$ ]]; then
+	WP_TESTS_TAG="branches/$TEST_WP_VERSION"
+elif [[ $TEST_WP_VERSION =~ [0-9]+\.[0-9]+\.[0-9]+ ]]; then
+	if [[ $TEST_WP_VERSION =~ [0-9]+\.[0-9]+\.[0] ]]; then
+		WP_TESTS_TAG="tags/${TEST_WP_VERSION%??}"
 	else
-		WP_TESTS_TAG="tags/$WP_VERSION"
+		WP_TESTS_TAG="tags/$TEST_WP_VERSION"
 	fi
-elif [[ $WP_VERSION == 'nightly' || $WP_VERSION == 'trunk' ]]; then
+elif [[ $TEST_WP_VERSION == 'nightly' || $TEST_WP_VERSION == 'trunk' ]]; then
 	WP_TESTS_TAG="trunk"
 else
 	download http://api.wordpress.org/core/version-check/1.7/ /tmp/wp-latest.json
@@ -52,36 +50,35 @@ fi
 set -ex
 
 install_wp() {
-
 	if [ -d $WP_CORE_DIR ]; then
 		return;
 	fi
 
 	mkdir -p $WP_CORE_DIR
 
-	if [[ $WP_VERSION == 'nightly' || $WP_VERSION == 'trunk' ]]; then
+	if [[ $TEST_WP_VERSION == 'nightly' || $TEST_WP_VERSION == 'trunk' ]]; then
 		mkdir -p $TMPDIR/wordpress-trunk
 		rm -rf $TMPDIR/wordpress-trunk/*
 		svn export --quiet https://core.svn.wordpress.org/trunk $TMPDIR/wordpress-trunk/wordpress
 		mv $TMPDIR/wordpress-trunk/wordpress/* $WP_CORE_DIR
 	else
-		if [ $WP_VERSION == 'latest' ]; then
+		if [ $TEST_WP_VERSION == 'latest' ]; then
 			local ARCHIVE_NAME='latest'
-		elif [[ $WP_VERSION =~ [0-9]+\.[0-9]+ ]]; then
+		elif [[ $TEST_WP_VERSION =~ [0-9]+\.[0-9]+ ]]; then
 			download https://api.wordpress.org/core/version-check/1.7/ $TMPDIR/wp-latest.json
-			if [[ $WP_VERSION =~ [0-9]+\.[0-9]+\.[0] ]]; then
-				LATEST_VERSION=${WP_VERSION%??}
+			if [[ $TEST_WP_VERSION =~ [0-9]+\.[0-9]+\.[0] ]]; then
+				LATEST_VERSION=${TEST_WP_VERSION%??}
 			else
-				local VERSION_ESCAPED=`echo $WP_VERSION | sed 's/\./\\\\./g'`
+				local VERSION_ESCAPED=`echo $TEST_WP_VERSION | sed 's/\./\\\\./g'`
 				LATEST_VERSION=$(grep -o '"version":"'$VERSION_ESCAPED'[^"]*' $TMPDIR/wp-latest.json | sed 's/"version":"//' | head -1)
 			fi
 			if [[ -z "$LATEST_VERSION" ]]; then
-				local ARCHIVE_NAME="wordpress-$WP_VERSION"
+				local ARCHIVE_NAME="wordpress-$TEST_WP_VERSION"
 			else
 				local ARCHIVE_NAME="wordpress-$LATEST_VERSION"
 			fi
 		else
-			local ARCHIVE_NAME="wordpress-$WP_VERSION"
+			local ARCHIVE_NAME="wordpress-$TEST_WP_VERSION"
 		fi
 		download https://wordpress.org/${ARCHIVE_NAME}.tar.gz  $TMPDIR/wordpress.tar.gz
 		tar --strip-components=1 -zxmf $TMPDIR/wordpress.tar.gz -C $WP_CORE_DIR
@@ -109,10 +106,10 @@ install_test_suite() {
 		WP_CORE_DIR=$(echo $WP_CORE_DIR | sed "s:/\+$::")
 		sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR/':" "$WP_TESTS_DIR"/wp-tests-config.php
 		sed $ioption "s:__DIR__ . '/src/':'$WP_CORE_DIR/':" "$WP_TESTS_DIR"/wp-tests-config.php
-		sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" "$WP_TESTS_DIR"/wp-tests-config.php
-		sed $ioption "s/yourusernamehere/$DB_USER/" "$WP_TESTS_DIR"/wp-tests-config.php
-		sed $ioption "s/yourpasswordhere/$DB_PASS/" "$WP_TESTS_DIR"/wp-tests-config.php
-		sed $ioption "s|localhost|${DB_HOST}|" "$WP_TESTS_DIR"/wp-tests-config.php
+		sed $ioption "s/youremptytestdbnamehere/$TEST_DB_NAME/" "$WP_TESTS_DIR"/wp-tests-config.php
+		sed $ioption "s/yourusernamehere/$TEST_DB_USER/" "$WP_TESTS_DIR"/wp-tests-config.php
+		sed $ioption "s/yourpasswordhere/$TEST_DB_PWD/" "$WP_TESTS_DIR"/wp-tests-config.php
+		sed $ioption "s|localhost|${TEST_DB_HOST}|" "$WP_TESTS_DIR"/wp-tests-config.php
 	fi
 
 }
@@ -121,43 +118,38 @@ recreate_db() {
 	shopt -s nocasematch
 	if [[ $1 =~ ^(y|yes)$ ]]
 	then
-		mysqladmin drop $DB_NAME -f --user="$DB_USER" --password="$DB_PASS"$EXTRA
+		mysqladmin drop $TEST_DB_NAME -f --user="$TEST_DB_USER" --password="$TEST_DB_PWD"$EXTRA
 		create_db
-		echo "Recreated the database ($DB_NAME)."
+		echo "Recreated the database ($TEST_DB_NAME)."
 	else
-		echo "Leaving the existing database ($DB_NAME) in place."
+		echo "Leaving the existing database ($TEST_DB_NAME) in place."
 	fi
 	shopt -u nocasematch
 }
 
 create_db() {
-	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
+	mysqladmin create $TEST_DB_NAME --user="$TEST_DB_USER" --password="$TEST_DB_PWD"$EXTRA
 }
 
 install_db() {
-
-	if [ ${SKIP_DB_CREATE} = "true" ]; then
-		return 0
-	fi
-
-	local PARTS=(${DB_HOST//\:/ })
-	local DB_HOSTNAME=${PARTS[0]};
+	local PARTS=(${TEST_DB_HOST//\:/ })
+	local TEST_DB_HOSTNAME=${PARTS[0]};
 	local DB_SOCK_OR_PORT=${PARTS[1]};
 	local EXTRA=""
 
-	if ! [ -z $DB_HOSTNAME ] ; then
+	if ! [ -z $TEST_DB_HOSTNAME ] ; then
 		if [ $(echo $DB_SOCK_OR_PORT | grep -e '^[0-9]\{1,\}$') ]; then
-			EXTRA=" --host=$DB_HOSTNAME --port=$DB_SOCK_OR_PORT --protocol=tcp"
+			EXTRA=" --host=$TEST_DB_HOSTNAME --port=$DB_SOCK_OR_PORT --protocol=tcp"
 		elif ! [ -z $DB_SOCK_OR_PORT ] ; then
 			EXTRA=" --socket=$DB_SOCK_OR_PORT"
-		elif ! [ -z $DB_HOSTNAME ] ; then
-			EXTRA=" --host=$DB_HOSTNAME --protocol=tcp"
+		elif ! [ -z $TEST_DB_HOSTNAME ] ; then
+			EXTRA=" --host=$TEST_DB_HOSTNAME --protocol=tcp"
 		fi
 	fi
 
-	if [ $(mysql --user="$DB_USER" --password="$DB_PASS"$EXTRA --execute='show databases;' | grep ^$DB_NAME$) ]
+	if [ $(mysql --user="$TEST_DB_USER" --password="$TEST_DB_PWD"$EXTRA --execute='show databases;' | grep ^$TEST_DB_NAME$) ]
 	then
-		echo "Reinstalling will delete the existing test database ($DB_NAME)"
+		echo "Reinstalling will delete the existing test database ($TEST_DB_NAME)"
 		read -p 'Are you sure you want to proceed? [y/N]: ' DELETE_EXISTING_DB
 		recreate_db $DELETE_EXISTING_DB
 	else

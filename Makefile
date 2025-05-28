@@ -1,5 +1,6 @@
 init:
 	composer install && \
+	zsh ./.script/install-wp-tests.sh && \
 	NVM_DIR="$${HOME}/.nvm" && . "$${NVM_DIR}/nvm.sh" && nvm use && \
 	npm install && npm run build
 
