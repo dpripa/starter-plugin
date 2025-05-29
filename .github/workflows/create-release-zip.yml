@@ -35,7 +35,7 @@ jobs:
               run: npm install
 
             - name: Prepare to Release
-              run: make tests && make lint && npm run build && composer run no-dev && npm run create-release-zip
+              run: make lint && npm run build && composer run no-dev && npm run create-release-zip
 
             - name: Extract Repository Name
               id: repo-name

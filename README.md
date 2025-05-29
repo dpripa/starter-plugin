@@ -2,11 +2,14 @@
 
 ### Requirements
 - `PHP >=7.4.0`
-- `NVM`
+- `Composer`
+- `mysql >=5.7.0`
+- `NVM` (`Node.js 14.x`)
 
-### CLI
-You can find all available commands in the `Makefile`.\
-__NOTE:__ the `.env` file must be defined and contain the required parameters (use the `.env.example` file as reference).
+### Local Development
+The `.env` file is necessary for the entire process (use the `.env.example` file as reference).\
+Once you have generated the `.env` file, run `make init`. After execution, the project is ready for launch and development.\
+You can find all other important commands in the `Makefile` file.
 
 ### GitHub Actions
 Before using workflows, you should define `secret` variables in the project repository settings ([docs](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)).

@@ -4,6 +4,7 @@ release
 vendor
 .DS_Store
 .env
+.env.bak
 auth.json
 ehthumbs.db
 Thumbs.db

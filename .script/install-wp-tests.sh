@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 ENV_FILE="$(dirname "$0")/../.env"
 
 if [ -f "$ENV_FILE" ]; then
@@ -132,6 +130,10 @@ create_db() {
 }
 
 install_db() {
+	if [ ${TEST_SKIP_DB_CREATE} = "true" ]; then
+		return 0
+	fi
+
 	local PARTS=(${TEST_DB_HOST//\:/ })
 	local TEST_DB_HOSTNAME=${PARTS[0]};
 	local DB_SOCK_OR_PORT=${PARTS[1]};
@@ -160,3 +162,7 @@ install_db() {
 install_wp
 install_test_suite
 install_db
+
+if [ ${TEST_SKIP_DB_CREATE} = "false" ]; then
+	sed -i.bak 's/^TEST_SKIP_DB_CREATE=false/TEST_SKIP_DB_CREATE=true/' $ENV_FILE
+fi
