@@ -32,7 +32,7 @@
       "asset",
       "inc",
       "lang",
-      "vendor",
+      "lib",
       "view"
     ],
     "files": [

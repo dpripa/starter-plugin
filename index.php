@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 const KEY       = 'starter_plugin';
 const ROOT_FILE = __FILE__;
 
-$autoload = __DIR__ . '/vendor/autoload.php';
+$autoload = __DIR__ . '/lib/vendor/scoper-autoload.php';
 
 if ( ! file_exists( $autoload ) ) {
 	throw new Exception( 'Autoloader not exists' );
@@ -27,4 +27,8 @@ if ( ! file_exists( $autoload ) ) {
 
 require_once $autoload;
 
-new Setup();
+function app(): App {
+	return App::get_instance();
+}
+
+app();

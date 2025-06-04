@@ -52,17 +52,22 @@ jobs:
                       .script/**
                       node_modules/**
                       src/**
-                      tests/**
+                      test/**
+                      tmp/**
+                      vendor/**
                       .editorconfig
                       .env
+                      .env.bak
                       .env.example
                       .eslintignore
                       .eslintrc
                       .gitignore
                       .nvmrc
+                      .phpunit.result.cache
                       .stylelintignore
                       .stylelintrc
                       .travis.yml
+                      autoload.json
                       composer.json
                       composer.lock
                       Makefile
@@ -71,4 +76,5 @@ jobs:
                       phpcs.xml
                       phunit.xml.dist
                       README.md
+                      scoper.inc.php
                       webpack.config.js
