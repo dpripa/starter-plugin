@@ -4,6 +4,9 @@ init:
 	NVM_DIR="$${HOME}/.nvm" && . "$${NVM_DIR}/nvm.sh" && nvm use && \
 	npm install && npm run build
 
+composer-update:
+	composer update
+
 start-watch:
 	NVM_DIR="$${HOME}/.nvm" && . "$${NVM_DIR}/nvm.sh" && nvm use && \
  	npm run start
