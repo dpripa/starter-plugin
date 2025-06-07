@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 
 class App extends AbstractApp {
 	protected function __construct() {
-		parent::__construct( ROOT_FILE, 'starter_plugin' );
+		parent::__construct( ROOT_FILE, KEY );
 
 		add_action( 'plugins_loaded', $this->init() );
 		add_action( 'init', $this->load_textdomain() );
