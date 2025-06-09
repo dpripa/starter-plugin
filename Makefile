@@ -16,12 +16,13 @@ build-src:
  	npm run build
 
 create-release-zip:
-	make lint && make build-src && composer run no-dev && \
-	npm run create-release-zip && composer install
+	make lint && \
+	make build-src && \
+	npm run create-release-zip
 
 deploy-to-dev:
-	make build-src && composer run no-dev && \
-	npm run deploy-to-dev && composer install
+	make build-src && \
+	npm run deploy-to-dev
 
 tests:
 	composer run tests
@@ -33,5 +34,4 @@ lint:
 	composer run lint && npm run lint-style && npm run lint-script
 
 prepare-to-release:
-	make lint && npm run build && \
-	composer run no-dev
+	make lint && npm run build
