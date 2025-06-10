@@ -24,7 +24,7 @@
   },
   "require": {
     "php": ">=7.4.0",
-    "omgpress/omgcore": "dev-main"
+    "omgpress/omgcore": "^1.0.1"
   },
   "require-dev": {
     "humbug/php-scoper": "^0.18.17",
