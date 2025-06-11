@@ -10,12 +10,10 @@ class App extends OmgApp {
 		parent::__construct( ROOT_FILE, KEY );
 
 		add_action( 'init', $this->load_textdomain() );
-		add_action( 'wp_enqueue_scripts', $this->enqueue_assets() );
+		add_action( 'plugins_loaded', $this->init() );
 		register_activation_hook( ROOT_FILE, $this->activate() );
 		register_deactivation_hook( ROOT_FILE, $this->deactivate() );
 	}
-
-	protected function init(): void {}
 
 	protected function load_textdomain(): callable {
 		return function (): void {
@@ -24,6 +22,12 @@ class App extends OmgApp {
 				false,
 				$this->fs->get_path( 'lang' )
 			);
+		};
+	}
+
+	protected function init(): callable {
+		return function (): void {
+			add_action( 'wp_enqueue_scripts', $this->enqueue_assets() );
 		};
 	}
 
