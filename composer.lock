@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e701b64d73d13d845860dd1112a27891",
+    "content-hash": "61268846905d6dcee8e5a2c565e1db84",
     "packages": [
         {
             "name": "omgpress/omgcore",
-            "version": "1.0.3",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/omgpress/omgcore.git",
-                "reference": "c665acc2af09a72d9589c402900698bc4ad72e98"
+                "reference": "0cf0904531526dfa0a777481f50e8dedce9f90c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/omgpress/omgcore/zipball/c665acc2af09a72d9589c402900698bc4ad72e98",
-                "reference": "c665acc2af09a72d9589c402900698bc4ad72e98",
+                "url": "https://api.github.com/repos/omgpress/omgcore/zipball/0cf0904531526dfa0a777481f50e8dedce9f90c2",
+                "reference": "0cf0904531526dfa0a777481f50e8dedce9f90c2",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/omgpress/omgcore/issues",
-                "source": "https://github.com/omgpress/omgcore/tree/1.0.3"
+                "source": "https://github.com/omgpress/omgcore/tree/0.1.0"
             },
-            "time": "2025-06-22T23:41:11+00:00"
+            "time": "2025-06-24T17:17:01+00:00"
         }
     ],
     "packages-dev": [
