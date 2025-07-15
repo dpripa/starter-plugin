@@ -21,5 +21,5 @@ ftp
 		forcePasv: true,
 		sftp: false,
 	} )
-	.then( ( res ) => log.success_( 'Deployment to dev is complete:', res ) )
+	.then( ( res ) => log.success_( 'Deployment to dev is complete: ' + res ) )
 	.catch( ( err ) => log.error_( err ) );
