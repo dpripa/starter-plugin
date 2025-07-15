@@ -2,9 +2,11 @@ const dotenv = require( 'dotenv' ).config();
 const FtpDeploy = require( 'ftp-deploy' );
 const path = require( 'path' );
 const ftp = new FtpDeploy();
+const log = require( 'log-beautify' );
 const release = require( '../package.json' ).release;
 
-ftp.deploy( {
+ftp
+	.deploy( {
 		host: process.env.DEV_FTP_HOST,
 		port: 21,
 		user: process.env.DEV_FTP_NAME,
@@ -19,5 +21,5 @@ ftp.deploy( {
 		forcePasv: true,
 		sftp: false,
 	} )
-	.then( ( res ) => console.log( 'Deployment to dev is complete:', res ) )
-	.catch( ( err ) => console.log( err ) );
+	.then( ( res ) => log.success_( 'Deployment to dev is complete:', res ) )
+	.catch( ( err ) => log.error_( err ) );
