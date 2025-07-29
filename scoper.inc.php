@@ -2,8 +2,8 @@
 use Isolated\Symfony\Component\Finder\Finder;
 
 return array(
-	'prefix'  => 'StarterPlugin',
-	'finders' => array(
+	'prefix'          => 'StarterPlugin',
+	'finders'         => array(
 		Finder::create()
 			->files()
 			->ignoreVCS( true )
@@ -14,4 +14,5 @@ return array(
 		Finder::create()
 			->append( array( 'composer.json' ) ),
 	),
+	'exclude-classes' => require_once __DIR__ . '/vendor/omgpress/omgcore/scoper.exclude-classes.php',
 );
