@@ -17,10 +17,13 @@ build-src:
 
 create-release-zip:
 	make lint && \
+	make tests && \
 	make build-src && \
 	npm run create-release-zip
 
 deploy-to-dev:
+	make lint && \
+	make tests && \
 	make build-src && \
 	npm run deploy-to-dev
 
