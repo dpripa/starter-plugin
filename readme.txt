@@ -1,17 +1,17 @@
 === Starter Plugin ===
 
 Stable tag: 1.0.0
-Contributors: OmgPress
+Contributors: OMG!PRESS
 Requires PHP: 7.4.0
 Requires at least: 5.0.0
 Tested up to: 5.0.0
 License: GPL-2.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags:
+Tags: blocks, blog, theme-options
 
 == Description ==
 
-The WordPress Plugin
+The WordPress plugin
 
 == Changelog ==
 

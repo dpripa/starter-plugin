@@ -1,13 +1,13 @@
 {
   "name": "starter-plugin",
   "version": "1.0.0",
-  "description": "The WordPress Plugin",
+  "description": "The WordPress plugin",
   "homepage": "https://omgpress.com/starter?type=plugin",
   "license": "GPL-2.0-or-later",
   "private": true,
   "contributors": [
     {
-      "name": "OmgPress",
+      "name": "OMG!PRESS",
       "email": "hello@omgpress.com",
       "homepage": "https://omgpress.com"
     }

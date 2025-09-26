@@ -2,10 +2,10 @@
 /**
  * Plugin Name: Starter Plugin
  * Plugin URI: https://omgpress.com/starter?type=plugin
- * Description: The WordPress Plugin
+ * Description: The WordPress plugin
  * Version: 1.0.0
  * Text Domain: starter-plugin
- * Author: OmgPress
+ * Author: OMG!PRESS
  * Author URI: https://omgpress.com
  * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
