@@ -1,13 +1,13 @@
 <?php
 namespace StarterPlugin;
 
-use StarterPlugin\OmgCore\OmgApp;
+use StarterPlugin\OmgCore\Core;
 use StarterPlugin\OmgCore\Dependency;
 use StarterPlugin\OmgCore\Logger;
 
 defined( 'ABSPATH' ) || exit;
 
-class App extends OmgApp {
+class App extends Core {
 	protected function __construct() {
 		parent::__construct( ROOT_FILE, KEY );
 	}
