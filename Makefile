@@ -30,7 +30,7 @@ deploy-to-dev:
 	npm run deploy-to-dev
 
 tests:
-	composer update && composer run tests
+	composer run tests
 
 fix:
 	composer run fix && npm run fix-style && npm run fix-script
