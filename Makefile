@@ -16,19 +16,21 @@ build-src:
  	npm run build
 
 create-release-zip:
+	composer update && \
 	make lint && \
 	make tests && \
 	make build-src && \
 	npm run create-release-zip
 
 deploy-to-dev:
+	composer update && \
 	make lint && \
 	make tests && \
 	make build-src && \
 	npm run deploy-to-dev
 
 tests:
-	composer run tests
+	composer update && composer run tests
 
 fix:
 	composer run fix && npm run fix-style && npm run fix-script
